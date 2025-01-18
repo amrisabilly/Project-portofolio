@@ -8,10 +8,19 @@ export default {
   ],
   theme: {
     extend: {
-      colors: {
-        background: "var(--background)",
-        foreground: "var(--foreground)",
+      fontFamily:{
+        primary: ["Poppins", "sans-serif"]
       },
+      backgroundColor:{
+        "primary": "#FFFFFF",
+        "secondary": "#660066",
+        "black": "#1B1B1B",
+      },
+      textColor:{
+        "primary": "#FFFFFF",
+        "secondary": "#660066",
+        "black": "#1B1B1B",
+      }
     },
   },
   plugins: [],
