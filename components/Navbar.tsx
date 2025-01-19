@@ -6,7 +6,7 @@ import Link from "next/link";
 
 const Navbar = () => {
   return (
-    <div className="fixed top-0 left-0 right-0 bg-white z-50 shadow-md py-3">
+    <div className="fixed top-0 left-0 right-0 bg-white z-50 shadow-md py-3 px-28">
       <div className="container mx-auto flex items-center">
         {/* Logo */}
         <div className="flex-shrink-0">
@@ -18,7 +18,7 @@ const Navbar = () => {
             {NavItem.map((item) => (
               <li
                 key={item.id}
-                className="text-secondary font-normal text-[18px]"
+                className="text-secondary font-normal text-[17px]"
               >
                 <Link href={item.url}>{item.name}</Link>
               </li>

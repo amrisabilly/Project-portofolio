@@ -12,13 +12,13 @@ const Tittle = () => {
         setCurrentWordIndex((prev) => (prev + 1) % words.length);
         setIsFadingOut(false);
       }, 100); // Durasi fade-out
-    }, 3000); // Pergantian setiap 3 detik
+    }, 2000); // Pergantian setiap 3 detik
     return () => clearInterval(interval); // Bersihkan interval saat komponen unmount
   }, []);
 
   return (
     <div>
-      <h3 className="text-[50px] font-extrabold">
+      <h3 className="text-[40px] font-extrabold mb-5">
         Bringing{" "}
         <span
           className={`inline-block transition-opacity transform ${

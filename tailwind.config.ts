@@ -15,6 +15,8 @@ export default {
         "primary": "#FFFFFF",
         "secondary": "#660066",
         "black": "#1B1B1B",
+        "natural": "#FFC400",
+        "accent": "#FF9500",
       },
       textColor:{
         "primary": "#FFFFFF",
