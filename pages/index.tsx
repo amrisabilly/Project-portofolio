@@ -61,7 +61,7 @@ export default function Home() {
   return (
     <div>
       {isMobile ? (
-        <div className="bg-primary">
+        <div className="bg-primary w-full h-full">
           <NavbarMobile />
           <div id="home" className="w-full px-8">
             <div className="flex justify-end mt-5 items-center">
@@ -89,7 +89,7 @@ export default function Home() {
                 Bringing 23 years of retail expertise and 13 years of consulting
                 to the table, I specialize in crafting innovative solutions for
                 modern retail and cooperatives, driving growth for MSMEs and
-                communities across Indonesia.
+                communities acrosss Indonesia.
               </p>
               <a href="/cv.pdf" download>
                 <button
