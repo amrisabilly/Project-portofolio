@@ -43,24 +43,21 @@ export default function Home() {
   const [isMobile, setIsMobile] = useState(false);
 
   useEffect(() => {
-    // Pastikan kode hanya dijalankan di sisi klien
-    if (typeof window !== "undefined") {
-      const handleResize = () => {
-        setIsMobile(window.innerWidth <= 640);
-      };
+    // Fungsi untuk mendeteksi ukuran layar
+    const handleResize = () => {
+      // Sesuaikan dengan breakpoint Tailwind (<= 640px berarti sm atau lebih kecil)
+      setIsMobile(window.matchMedia("(max-width: 640px)").matches);
+    };
 
-      // Set nilai awal saat komponen pertama kali dirender
-      handleResize();
+    // Jalankan sekali saat komponen dimount
+    handleResize();
 
-      // Tambahkan event listener untuk menangani perubahan ukuran jendela
-      window.addEventListener("resize", handleResize);
+    // Tambahkan event listener untuk mendeteksi perubahan ukuran layar
+    window.addEventListener("resize", handleResize);
 
-      // Hapus event listener saat komponen di-unmount
-      return () => window.removeEventListener("resize", handleResize);
-    }
+    // Bersihkan event listener saat komponen di-unmount
+    return () => window.removeEventListener("resize", handleResize);
   }, []);
-
-
   return (
     <div>
       {isMobile ? (
