@@ -43,19 +43,23 @@ export default function Home() {
   const [isMobile, setIsMobile] = useState(false);
 
   useEffect(() => {
-    const handleResize = () => {
-      setIsMobile(window.innerWidth <= 640);
-    };
+    // Pastikan kode hanya dijalankan di sisi klien
+    if (typeof window !== "undefined") {
+      const handleResize = () => {
+        setIsMobile(window.innerWidth <= 640);
+      };
 
-    // Set nilai awal saat komponen pertama kali dirender
-    handleResize();
+      // Set nilai awal saat komponen pertama kali dirender
+      handleResize();
 
-    // Tambahkan event listener untuk menangani perubahan ukuran jendela
-    window.addEventListener("resize", handleResize);
+      // Tambahkan event listener untuk menangani perubahan ukuran jendela
+      window.addEventListener("resize", handleResize);
 
-    // Hapus event listener saat komponen di-unmount
-    return () => window.removeEventListener("resize", handleResize);
+      // Hapus event listener saat komponen di-unmount
+      return () => window.removeEventListener("resize", handleResize);
+    }
   }, []);
+
 
   return (
     <div>
