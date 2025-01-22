@@ -4,7 +4,6 @@ import { NavItem } from "@/components/Assets.js";
 import CloseMenu from "@/public/Images/CloseMenu.svg";
 import HamburgerMenu from "@/public/Images/HamburgerMenu.svg";
 import Logo from "@/public/Images/Logo1.svg";
-import Link from "next/link";
 import { motion } from "framer-motion"; // For animations
 import { useRouter } from "next/router";
 
