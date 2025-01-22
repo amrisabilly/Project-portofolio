@@ -8,7 +8,7 @@ const Scroll = () => {
       <div className="flex items-center gap-2 md:gap-10 animate-scroll">
         {Scrol.concat(Scrol).map((item, index) => (
           <div key={index} className="flex-shrink-0">
-            <Image src={item.link} alt={item.link} width={50} height={50} className="md:w-[100%] md:h-[100%]"/>
+            <Image src={item.link} alt={item.link} width={50} height={50} className="xl:w-[100%] xl:h-[100%]"/>
           </div>
         ))}
       </div>

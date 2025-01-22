@@ -18,7 +18,7 @@ const Tittle = () => {
 
   return (
     <div>
-      <h3 className="text-[27.29px] md:text-[40px] font-extrabold mb-3 md:mb-5">
+      <h3 className="text-[27.29px] md:text-[40px] font-extrabold mb-3 md:mb-5" data-aos="fade-up">
         Bringing {" "}
         <span
           className={`inline-block transition-opacity transform ${
