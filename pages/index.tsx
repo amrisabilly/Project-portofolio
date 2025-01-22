@@ -426,12 +426,12 @@ export default function Home() {
       ) : (
         // Tampilan Desktop
 
-        <div className="px-8 lg:px-9 xl:px-28 relative">
+        <div className="md:px-8 lg:px-9 xl:px-28 relative">
           <Navbar />
 
           {/* Section Home */}
           <div id="home" className="flex flex-row justify-between mt-36">
-            <div className="flex flex-col w-[25em] lg:w-[30em] xl:w-[30em] pt-20">
+            <div className="flex flex-col md:w-[25em] lg:w-[30em] xl:w-[30em] pt-20">
               <Image
                 src={LogoBunga}
                 alt="logoBunga"
@@ -443,7 +443,7 @@ export default function Home() {
                 Hi, Im Andri Syahrizal
               </h3>
               <p
-                className="font-normal text-[17px] w-[20em] lg:w-[28em] xl:w-[28em] mb-6 md:mb-14"
+                className="font-normal text-[17px] md:w-[20em] lg:w-[28em] xl:w-[28em] mb-6 md:mb-14"
                 data-aos="fade-up"
               >
                 Bringing 23 years of retail expertise and 13 years of consulting
@@ -464,7 +464,7 @@ export default function Home() {
               <Image
                 src={Photo1}
                 alt="logoBunga"
-                className="w-[300px] lg:w-[400px] xl:w-full h-[338.69px] md:h-full"
+                className="md:w-[300px] lg:w-[400px] xl:w-full h-[338.69px] md:h-full"
                 data-aos="fade-up"
               />
             </div>
@@ -474,7 +474,7 @@ export default function Home() {
           {/* Section 2 */}
 
           {/* Background Image */}
-          <div className="absolute top-[18em] lg:top-[14em] xl:top-[18em] left-0 w-full h-[100em] z-[-1] overflow-hidden pt-[40em] lg:pt-[43em] xl:pt-[45em]">
+          <div className="absolute md:top-[18em] lg:top-[14em] xl:top-[18em] left-0 w-full h-[100em] z-[-1] overflow-hidden md:pt-[40em] lg:pt-[43em] xl:pt-[45em]">
             <Image
               src={Background}
               alt="Background"
@@ -483,13 +483,13 @@ export default function Home() {
               className="rounded-b-[6em]"
             />
 
-            <div className="relative z-10 text-primary px-8 lg:px-9 xl:px-32">
-              <div className="flex flex-row gap-8 lg:gap-10 xl:gap-40">
+            <div className="relative z-10 text-primary md:px-8 lg:px-9 xl:px-32">
+              <div className="flex flex-row md:gap-8 lg:gap-10 xl:gap-40">
                 {/* Background Image */}
                 <Image
                   src={Photo2}
                   alt="photo2"
-                  className="w-[300px] lg:w-[330px] xl:w-[370px]"
+                  className="md:w-[300px] lg:w-[330px] xl:w-[370px]"
                   data-aos="fade-right"
                 />
                 <div id="education" className="flex flex-col">
@@ -505,7 +505,7 @@ export default function Home() {
                     Opened the doors to discovery
                   </h3>
                   <p
-                    className="w-[25em] lg:w-[30em] xl:w-[40em] text-[17px] font-normal"
+                    className="md:w-[25em] lg:w-[30em] xl:w-[40em] text-[17px] font-normal"
                     data-aos="fade-up"
                   >
                     Dedicated to lifelong learning, my education has shaped my
@@ -592,7 +592,7 @@ export default function Home() {
             </div>
           </div>
 
-          <div className="bg-[#FEFEFE] rounded-[20px] shadow-lg mt-[69em] lg:mt-[71em] xl:mt-[71em] mb-20 lg:mb-28 xl:mb-40 flex justify-evenly items-center pb-4">
+          <div className="bg-[#FEFEFE] rounded-[20px] shadow-lg md:mt-[69em] lg:mt-[71em] xl:mt-[71em] md:mb-20 lg:mb-28 xl:mb-40 flex justify-evenly items-center pb-4">
             {/* Item 1 */}
 
             <div className="flex flex-col items-center">
