@@ -1,13 +1,18 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
 import Image from "next/image";
+import { ExperienceMob } from "@/components/Assets";
 // components
 import Navbar from "@/components/Navbar";
+import NavbarMobile from "@/components/NavbarMobile";
 import Tittle from "@/components/Tittle";
+import Scroll from "@/components/Scroll";
 // Logo
+import Logo from "@/public/Images/Logo.svg";
 import LogoBunga from "@/public/Images/LogoBunga.svg";
 import LogoBunga1 from "@/public/Images/LogoBunga1.svg";
 import LogoFile from "@/public/Images/File_logo.svg";
 import Background from "@/public/Images/Frame.png";
+import BackgroundMobile from "@/public/mobile.png";
 import Graduation from "@/public/Images/Graduation_logo.svg";
 import Graduation1 from "@/public/Images/Graduation_logo2.svg";
 // Sosmed
@@ -17,249 +22,714 @@ import Facebook from "@/public/Images/Sosmed/Facebook.svg";
 // Profile
 import Photo1 from "@/public/Images/Profile/Photo1.svg";
 import Photo2 from "@/public/Images/Profile/Photo2.svg";
+import Photo3 from "@/public/Images/Profile/Photo3.svg";
+//Grid Mobile
+import Grid1 from "@/public/Images/Grid/grid1.svg";
+import Grid2 from "@/public/Images/Grid/grid2.svg";
+import Grid3 from "@/public/Images/Grid/grid3.svg";
+import Grid4 from "@/public/Images/Grid/grid4.svg";
+import Grid5 from "@/public/Images/Grid/grid5.svg";
+import Grid6 from "@/public/Images/Grid/grid6.svg";
+import Grid7 from "@/public/Images/Grid/grid7.svg";
+
+//Grid Desktop
+import gridDesk1 from "@/public/Images/Grid/Desktop/grid1.svg";
+import gridDesk2 from "@/public/Images/Grid/Desktop/grid2.svg";
+import gridDesk3 from "@/public/Images/Grid/Desktop/grid3.svg";
+import gridDesk4 from "@/public/Images/Grid/Desktop/grid4.svg";
+import gridDesk5 from "@/public/Images/Grid/Desktop/grid5.svg";
+import gridDesk6 from "@/public/Images/Grid/Desktop/grid6.svg";
+import gridDesk7 from "@/public/Images/Grid/Desktop/grid7.svg";
 
 export default function Home() {
+  const [isMobile, setIsMobile] = useState(false);
+
+  useEffect(() => {
+    const handleResize = () => {
+      setIsMobile(window.innerWidth <= 768);
+    };
+
+    // Set nilai awal saat komponen pertama kali dirender
+    handleResize();
+
+    // Tambahkan event listener untuk menangani perubahan ukuran jendela
+    window.addEventListener("resize", handleResize);
+
+    // Hapus event listener saat komponen di-unmount
+    return () => window.removeEventListener("resize", handleResize);
+  }, []);
+
   return (
-    <div className="px-28 relative">
-      <Navbar />
-
-      {/* Section Home */}
-      <div className="flex justify-between mt-36">
-        {/* Sisi Kiri */}
-        <div className="flex flex-col pt-20">
-          <Image
-            src={LogoBunga}
-            alt="logoBunga"
-            className="w-6 md:w-[101.52px] mb-5"
-          />
-          <Tittle />
-          <h3 className="font-bold text-[25px] mb-3">Hi, Im Andri Syahrizal</h3>
-          <p className="font-normal text-[17px] w-[28em] mb-14">
-            Bringing 23 years of retail expertise and 13 years of consulting to
-            the table, I specialize in crafting innovative solutions for modern
-            retail and cooperatives, driving growth for MSMEs and communities
-            across Indonesia.
-          </p>
-          <a href="">
-            <button className="flex gap-3 bg-gradient-to-r from-[#660066]  to-[#E1306C] text-white py-3 px-40 rounded-3xl font-bold text-lg transition-transform transform hover:scale-105 active:scale-95 shadow-lg hover:shadow-2xl">
-              <Image src={LogoFile} alt="file" className="w-6 md:w-[24px]" />
-              <p className="font-medium text-[18px]">Download CV</p>
-            </button>
-          </a>
-        </div>
-
-        {/* Sisi Kanan */}
+    <div>
+      {isMobile ? (
         <div>
-          <Image src={Photo1} alt="logoBunga" className="" />
-        </div>
-      </div>
+          <NavbarMobile />
+          <div className="w-full px-8">
+            <div className="flex justify-end mt-3 items-center">
+              <Image src={Logo} alt="logo" className="right-0 w-[46px]" />
+            </div>
+            {/* Sosmed */}
+            <div className="fixed right-8 top-40 transform -translate-y-1/2 flex flex-col gap-3 z-50">
+              <a
+                href="https://www.linkedin.com"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                <Image
+                  src={Linkind}
+                  alt="linkind"
+                  className="w-8 md:w-10 h-8 md:h-10"
+                />
+              </a>
+              <a
+                href="https://www.instagram.com"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                <Image
+                  src={Instagram}
+                  alt="instagram"
+                  className="w-8 md:w-10 h-8 md:h-10"
+                />
+              </a>
+              <a
+                href="https://www.facebook.com"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                <Image
+                  src={Facebook}
+                  alt="facebook"
+                  className="w-8 md:w-10 h-8 md:h-10"
+                />
+              </a>
+            </div>
 
-      {/* Sosmed */}
-      <div className="fixed right-5 top-1/2 transform -translate-y-1/2 flex flex-col gap-3">
-        <a
-          href="https://www.linkedin.com"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image src={Linkind} alt="linkind" className="w-10 h-10" />
-        </a>
-        <a
-          href="https://www.instagram.com"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image src={Instagram} alt="instagram" className="w-10 h-10" />
-        </a>
-        <a
-          href="https://www.facebook.com"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image src={Facebook} alt="facebook" className="w-10 h-10" />
-        </a>
-      </div>
-
-      {/* Section 2 */}
-
-      {/* Background Image */}
-      <div className="absolute top-[18em] left-0 w-full h-[100em] z-[-1] overflow-hidden pt-[45em]">
-        <Image
-          src={Background}
-          alt="Background"
-          layout="fill"
-          objectFit="cover"
-          className="rounded-b-[6em]"
-        />
-        <div className="relative z-10 text-primary px-32">
-          <div className="flex flex-wrap gap-40">
-            {/* Background Image */}
-            <Image src={Photo2} alt="photo2" className="w-[370px]" />
-            <div className="flex flex-col">
-              <div className="flex items-end gap-3 mb-3">
-                <Image src={Graduation} alt="graduation" className="w-[44px]" />
-                <p className="text-[25px] font-normal">Education</p>
-              </div>
-              <h3 className="text-[40px] font-bold mb-2">
-                Opened the doors to discovery
+            <div className="mt-[4em]">
+              <Image
+                src={LogoBunga}
+                alt="logoBunga"
+                className="w-[55.42px] mb-3"
+              />
+              <Tittle />
+              <h3 className="font-bold text-[16px] mb-3">
+                Hi, Im Andri Syahrizal
               </h3>
-              <p className="w-[40em] text-[17px] font-normal">
-                Dedicated to lifelong learning, my education has shaped my
-                mindset and laid a strong foundation for delivering impactful
-                solutions in the future.
+              <p className="font-normal text-[12px] w-[22em] mb-6">
+                Bringing 23 years of retail expertise and 13 years of consulting
+                to the table, I specialize in crafting innovative solutions for
+                modern retail and cooperatives, driving growth for MSMEs and
+                communities across Indonesia.
               </p>
-              <div className="m-10">
-                <div className="relative border-l-4 border-[#FFFFFF]">
+              <a href="">
+                <button className="flex items-center justify-center gap-3 bg-gradient-to-r from-[#660066] to-[#E1306C] text-white py-1 w-full rounded-3xl font-bold text-lg transition-transform transform  active:scale-95 shadow-lg hover:shadow-2xl">
+                  <Image src={LogoFile} alt="file" className="w-[13px]" />
+                  <p className="font-medium text-[12px]">Download CV</p>
+                </button>
+              </a>
+            </div>
+            <div className="mt-8">
+              <Image src={Photo1} alt="Photo" />
+            </div>
+          </div>
+          <div className="absolute top-[50em]">
+            <div className="relative z-10">
+              <Image
+                src={BackgroundMobile}
+                alt="Background"
+                className="w-full h-auto"
+              />
+              <div className="absolute inset-0 px-8">
+                <Image src={Photo3} alt="Photo" className="mt-[12em] mb-3" />
+                <div className="flex flex-col text-primary">
+                  <div className="flex gap-2 mb-1">
+                    <Image
+                      src={Graduation}
+                      alt="graduation"
+                      className="w-[20px]"
+                    />
+                    <p className="text-[16px] font-normal">Education</p>
+                  </div>
+                  <h3 className="text-[18px] font-bold mb-2">
+                    Opened the doors to discovery
+                  </h3>
+                  <p className="text-[12px] font-normal">
+                    Dedicated to lifelong learning, my education has shaped my
+                    mindset and laid a strong foundation for delivering
+                    impactful solutions in the future.
+                  </p>
+                  <div className="m-4">
+                    <div className="relative border-l-4 border-[#FFFFFF]">
+                      {/* Item 1 */}
+                      <div className="mb-2 ml-8">
+                        <div className="absolute w-5 h-5 bg-white rounded-full -left-[12px] border-4 border-[#FF9500]"></div>
+                        <time className="mb-1 text-[11px] font-normal leading-none text-primary">
+                          2004
+                        </time>
+                        <h3 className="text-[12px] mt-1 font-bold text-primary">
+                          UIN Sunan Kalijaga
+                        </h3>
+                        <p className="text-[12px] font-normal text-primary">
+                          Bachelor of Islamic Economics
+                        </p>
+                      </div>
+
+                      {/* Item 2 */}
+                      <div className="mb-2 ml-8">
+                        <div className="absolute w-5 h-5 bg-white rounded-full -left-[12px] border-4 border-[#FF9500]"></div>
+                        <time className="mb-1 text-[11px] font-normal leading-none text-primary">
+                          2020 - 2023
+                        </time>
+                        <h3 className="text-[12px] mt-1 font-bold text-primary">
+                          Kelas Prakerja
+                        </h3>
+                        <p className="text-[12px] font-normal text-primary">
+                          Manajemen Toko Retail Makanan
+                        </p>
+                      </div>
+
+                      {/* Item 3 */}
+                      <div className="ml-8">
+                        <div className="absolute w-5 h-5 bg-white rounded-full -left-[12px] border-4 border-[#FF9500]"></div>
+                        <time className="mb-1 text-[11px] font-normal leading-none text-primary">
+                          2020 - 2023
+                        </time>
+                        <h3 className="text-[12px] mt-1 font-bold text-primary">
+                          Dinas Koperasi dan UMKM
+                        </h3>
+                        <p className="text-[12px] font-normal text-primary">
+                          Pelatihan Manajemen Ritel untuk UMKM
+                        </p>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <div className="w-full h-[5em] bg-primary shadow-xl rounded-md mt-3 flex items-center gap-3 p-2">
                   {/* Item 1 */}
-                  <div className="mb-10 ml-10">
-                    <div className="absolute w-7 h-7 bg-white rounded-full -left-[16px] border-8 border-[#FF9500]"></div>
-                    <time className="mb-1 text-[17px] font-normal leading-none text-primary">
-                      2004
-                    </time>
-                    <h3 className="text-[25px] mt-2 font-bold text-primary">
-                      UIN Sunan Kalijaga
-                    </h3>
-                    <p className="text-[25px] font-normal text-primary">
-                      Bachelor of Islamic Economics
+
+                  <div className="flex flex-col items-center">
+                    <div className="flex gap-1 items-end text-secondary">
+                      <h1 className="font-bold text-[20px]">23</h1>
+                      <h3 className="font-bold text-[10px] mb-[5px]">Years</h3>
+                    </div>
+                    <p className="text-center font-normal text-[8px]">
+                      Experienced in Retail Management
                     </p>
                   </div>
 
-                  {/* Item 2 */}
-                  <div className="mb-10 ml-10">
-                    <div className="absolute w-7 h-7 bg-white rounded-full -left-[16px] border-8 border-[#FF9500]"></div>
-                    <time className="mb-1 text-[17px] font-normal leading-none text-primary">
-                      2020 - 2023
-                    </time>
-                    <h3 className="text-[25px] mt-2 font-bold text-primary">
-                      Kelas Prakerja
-                    </h3>
-                    <p className="text-[25px] font-normal text-primary">
-                      Manajemen Toko Retail Makanan (Daring)
+                  {/* Item 1 */}
+
+                  <div className="flex flex-col items-center">
+                    <div className="flex gap-1 items-end text-secondary">
+                      <h1 className="font-bold text-[20px]">23</h1>
+                      <h3 className="font-bold text-[10px] mb-[5px]">Years</h3>
+                    </div>
+                    <p className="text-center font-normal text-[8px]">
+                      Experienced in Retail Management
                     </p>
                   </div>
 
-                  {/* Item 3 */}
-                  <div className="ml-10">
-                    <div className="absolute w-7 h-7 bg-white rounded-full -left-[16px] border-8 border-[#FF9500]"></div>
-                    <time className="mb-1 text-[17px] font-normal leading-none text-primary">
-                      2020 - 2023
-                    </time>
-                    <h3 className="text-[25px] mt-2 font-bold text-primary">
-                      Dinas Koperasi dan UMKM
-                    </h3>
-                    <p className="text-[25px] font-normal text-primary">
-                      Pelatihan Manajemen Ritel untuk UMKM
+                  {/* Item 1 */}
+
+                  <div className="flex flex-col items-center">
+                    <div className="flex gap-1 items-end text-secondary">
+                      <h1 className="font-bold text-[20px]">23</h1>
+                      <h3 className="font-bold text-[10px] mb-[5px]">Years</h3>
+                    </div>
+                    <p className="text-center font-normal text-[8px]">
+                      Experienced in Retail Management
                     </p>
                   </div>
                 </div>
               </div>
             </div>
           </div>
+          <div className="w-full h-[100em] bg-primary px-6 mb-48">
+            {/* Section 3 */}
+            <div className="flex flex-col items-center text-center mt-[43em]">
+              <div className="flex items-end gap-3 mb-3 ">
+                <Image
+                  src={Graduation1}
+                  alt="graduation"
+                  className="w-[20px]"
+                />
+                <h4 className="text-[16px] font-normal">Experience</h4>
+              </div>
+              <h3 className="md:text-[18px] font-bold w-[20em] mb-3">
+                Driving Success with Decades of Professional Experience
+              </h3>
+              <p className="text-[12px] font-normal mb-20">
+                With a passion for retail management and consulting, Ive
+                delivered impactful solutions that drive growth and innovation
+                for businesses.
+              </p>
+              <div className="grid grid-cols-2 gap-4">
+                {ExperienceMob.map((item) => (
+                  <div
+                    className="bg-primary h-[15em] shadow-lg rounded-xl flex flex-col justify-evenly py-4 px-4 text-[12px] text-left"
+                    key={item.id}
+                  >
+                    <p className="font-medium text-[#616161] text-[11px]">
+                      {item.tahun}
+                    </p>
+                    <h3 className="font-bold">{item.jabatan}</h3>
+                    <p className="font-normal">{item.keterangan}</p>
+                  </div>
+                ))}
+                <div className="bg-transparent rounded-xl flex flex-col justify-center items-center col-span-2">
+                  <Image src={LogoBunga1} alt="logo" className="w-[155px]" />
+                </div>
+              </div>
+            </div>
+
+            <div className="flex flex-col items-center text-center mt-[3em]">
+              <div className="flex items-end gap-3 mb-3 ">
+                <Image
+                  src={Graduation1}
+                  alt="graduation"
+                  className="w-[20px]"
+                />
+                <h4 className="text-[16px] font-normal">Experience</h4>
+              </div>
+              <h3 className="md:text-[18px] font-bold w-[20em] mb-3">
+                Gallery of my Activities{" "}
+              </h3>
+              <div className="">
+                <div className="grid grid-cols-3 gap-2">
+                  <div className="col-span-3">
+                    <Image src={Grid1} alt="Group Event" className="" />
+                  </div>
+                  <div className="col-span-1">
+                    <div className="grid grid-rows-1 gap-2">
+                      {/* Row 1 */}
+                      <div className="row-span-1 relative h-[54px]">
+                        <Image
+                          src={Grid2}
+                          alt="Group Event"
+                          className="w-full h-full object-cover rounded-[8.46px]"
+                        />
+                      </div>
+
+                      {/* Row 2 */}
+                      <div className="row-span-1 relative h-[110px]">
+                        <Image
+                          src={Grid4}
+                          alt="Group Event"
+                          className="w-full h-full object-cover rounded-[8.46px]"
+                        />
+                      </div>
+
+                      {/* Row 3 */}
+                      <div className="row-span-1 relative h-[97px]">
+                        <Image
+                          src={Grid7}
+                          alt="Group Event"
+                          className="w-full h-full object-cover rounded-[8.46px]"
+                        />
+                      </div>
+                    </div>
+                  </div>
+                  <div className="col-span-2">
+                    <div className="grid grid-rows-3 gap-2 h-[270px]">
+                      <div className="row-span-1 relative h-full">
+                        <Image
+                          src={Grid3}
+                          alt="Group Event"
+                          className="absolute inset-0 w-full h-full object-cover rounded-[8.46px]"
+                        />
+                      </div>
+                      <div className="row-span-2">
+                        <div className="grid grid-cols-2 gap-2 h-[184px]">
+                          {/* Kolom 1 */}
+                          <div className="col-span-1 relative h-full ">
+                            <Image
+                              src={Grid5}
+                              alt="Group Event"
+                              className="absolute inset-0 w-full h-full object-cover rounded-[8.46px]"
+                            />
+                          </div>
+
+                          {/* Kolom 2 */}
+                          <div className="col-span-1 relative h-full">
+                            <Image
+                              src={Grid6}
+                              alt="Group Event"
+                              className="absolute inset-0 w-full h-full object-cover rounded-[8.46px]"
+                            />
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div className="mt-10">
+              <Scroll />
+            </div>
+
+            <div className="w-full h-[0.5em] bg-gradient-to-r from-[#660066] to-[#E1306C] rounded-xl mt-10"></div>
+          </div>
         </div>
-      </div>
+      ) : (
+        // Tampilan Desktop
 
-      <div className="bg-[#FEFEFE] rounded-[20px] shadow-lg mt-[71em] mb-40 flex justify-evenly items-center pb-4">
-        {/* Item 1 */}
+        <div className="px-8 md:px-14 lg:px-28 relative">
+          <Navbar />
 
-        <div className="flex flex-col items-center">
-          <div className="flex gap-2 items-end text-secondary">
-            <h1 className="font-bold text-[60px]">23</h1>
-            <h3 className="font-bold text-[28px] mb-5 ">Years</h3>
+          {/* Section Home */}
+          <div className="flex flex-col md:flex-row justify-between mt-40 md:mt-36">
+            <div className="flex flex-col pt-10 md:pt-20 lg:pt-20 mb-8 md:mb-0">
+              <Image
+                src={LogoBunga}
+                alt="logoBunga"
+                className="w-[55.42px] md:w-[101.52px] mb-3 md:mb-5"
+              />
+              <Tittle />
+              <h3 className="font-bold text-[11.84px] md:text-[25px] mb-3">
+                Hi, Im Andri Syahrizal
+              </h3>
+              <p className="font-normal text-[11.84px] md:text-[17px] w-[26em] md:w-[28em] mb-6 md:mb-14">
+                Bringing 23 years of retail expertise and 13 years of consulting
+                to the table, I specialize in crafting innovative solutions for
+                modern retail and cooperatives, driving growth for MSMEs and
+                communities across Indonesia.
+              </p>
+              <a href="">
+                <button className="flex items-center justify-center gap-3 bg-gradient-to-r from-[#660066] to-[#E1306C] text-white py-1 md:py-3 w-full rounded-3xl font-bold text-lg transition-transform transform  md:hover:scale-105 active:scale-95 shadow-lg hover:shadow-2xl">
+                  <Image
+                    src={LogoFile}
+                    alt="file"
+                    className="w-[13px] md:w-[24px]"
+                  />
+                  <p className="font-medium text-[11.3px] md:text-[18px]">
+                    Download CV
+                  </p>
+                </button>
+              </a>
+            </div>
+
+            {/* Sisi Kanan */}
+            <div>
+              <Image
+                src={Photo1}
+                alt="logoBunga"
+                className="w-[276.7px] md:w-full h-[338.69px] md:h-full"
+              />
+            </div>
           </div>
-          <p className="w-60 text-center font-normal text-[17px]">
-            Experienced in Retail Management
-          </p>
-        </div>
 
-        {/* Item 1 */}
+          {/* Sosmed */}
+          <div className="fixed right-5 top-1/2 transform -translate-y-1/2 flex flex-col gap-3">
+            <a
+              href="https://www.linkedin.com"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              <Image
+                src={Linkind}
+                alt="linkind"
+                className="w-8 md:w-10 h-8 md:h-10"
+              />
+            </a>
+            <a
+              href="https://www.instagram.com"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              <Image
+                src={Instagram}
+                alt="instagram"
+                className="w-8 md:w-10 h-8 md:h-10"
+              />
+            </a>
+            <a
+              href="https://www.facebook.com"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              <Image
+                src={Facebook}
+                alt="facebook"
+                className="w-8 md:w-10 h-8 md:h-10"
+              />
+            </a>
+          </div>
 
-        <div className="flex flex-col items-center">
-          <div className="flex gap-2 items-end text-secondary">
-            <h1 className="font-bold text-[60px]">23</h1>
-            <h3 className="font-bold text-[28px] mb-5">Years</h3>
-          </div>
-          <p className="w-60 text-center font-normal text-[17px]">
-            Experienced in Retail Management
-          </p>
-        </div>
+          {/* Section 2 */}
 
-        {/* Item 1 */}
+          {/* Background Image */}
+          <div className="absolute top-[18em] left-0 md:w-full h-[100em] z-[-1] overflow-hidden pt-[45em]">
+            <Image
+              src={Background}
+              alt="Background"
+              layout="fill"
+              objectFit="cover"
+              className="rounded-b-[6em]"
+            />
 
-        <div className="flex flex-col items-center">
-          <div className="flex gap-2 items-end text-secondary">
-            <h1 className="font-bold text-[60px]">23</h1>
-            <h3 className="font-bold text-[28px] mb-5">Years</h3>
-          </div>
-          <p className="w-60 text-center font-normal text-[17px]">
-            Experienced in Retail Management
-          </p>
-        </div>
-      </div>
+            <div className="relative z-10 text-primary px-32">
+              <div className="flex flex-row gap-40">
+                {/* Background Image */}
+                <Image src={Photo2} alt="photo2" className="w-[370px]" />
+                <div className="flex flex-col">
+                  <div className="flex items-end gap-3 mb-3">
+                    <Image
+                      src={Graduation}
+                      alt="graduation"
+                      className="w-[44px]"
+                    />
+                    <p className="text-[25px] font-normal">Education</p>
+                  </div>
+                  <h3 className="text-[40px] font-bold mb-2">
+                    Opened the doors to discovery
+                  </h3>
+                  <p className="w-[40em] text-[17px] font-normal">
+                    Dedicated to lifelong learning, my education has shaped my
+                    mindset and laid a strong foundation for delivering
+                    impactful solutions in the future.
+                  </p>
+                  <div className="m-10">
+                    <div className="relative border-l-4 border-[#FFFFFF]">
+                      {/* Item 1 */}
+                      <div className="mb-10 ml-10">
+                        <div className="absolute w-7 h-7 bg-white rounded-full -left-[16px] border-8 border-[#FF9500]"></div>
+                        <time className="mb-1 text-[17px] font-normal leading-none text-primary">
+                          2004
+                        </time>
+                        <h3 className="text-[25px] mt-2 font-bold text-primary">
+                          UIN Sunan Kalijaga
+                        </h3>
+                        <p className="text-[25px] font-normal text-primary">
+                          Bachelor of Islamic Economics
+                        </p>
+                      </div>
 
-      {/* Section 3 */}
-      <div className="w-full h-[100em] flex flex-col items-center  text-center">
-        <div className="flex items-end gap-3 mb-3 ">
-          <Image src={Graduation1} alt="graduation" className="w-[44px]" />
-          <h4 className="text-[25px] font-normal">Experience</h4>
-        </div>
-        <h3 className="text-[40px] font-bold w-[20em] mb-7">
-          Driving Success with Decades of Professional Experience
-        </h3>
-        <p className="w-[40em] text-[17px] font-normal mb-20">
-          With a passion for retail management and consulting, Ive delivered
-          impactful solutions that drive growth and innovation for businesses.
-        </p>
-        <div className="grid grid-cols-3 gap-[42px]">
-          <div className="w-[392px] h-[183px] bg-primary shadow-lg rounded-xl flex flex-col justify-evenly py-6 px-10 text-[17px] text-left">
-            <p className="font-medium text-[#616161]">2004 - 2010</p>
-            <h3 className="font-bold text-[18px]">Direktur Wilayah</h3>
-            <p className="font-normal">
-              Lembaga Pendidikan Perkoperasian (LAPENKOP) Wilayah DIY
-            </p>
+                      {/* Item 2 */}
+                      <div className="mb-10 ml-10">
+                        <div className="absolute w-7 h-7 bg-white rounded-full -left-[16px] border-8 border-[#FF9500]"></div>
+                        <time className="mb-1 text-[17px] font-normal leading-none text-primary">
+                          2020 - 2023
+                        </time>
+                        <h3 className="text-[25px] mt-2 font-bold text-primary">
+                          Kelas Prakerja
+                        </h3>
+                        <p className="text-[25px] font-normal text-primary">
+                          Manajemen Toko Retail Makanan (Daring)
+                        </p>
+                      </div>
+
+                      {/* Item 3 */}
+                      <div className="ml-10">
+                        <div className="absolute w-7 h-7 bg-white rounded-full -left-[16px] border-8 border-[#FF9500]"></div>
+                        <time className="mb-1 text-[17px] font-normal leading-none text-primary">
+                          2020 - 2023
+                        </time>
+                        <h3 className="text-[25px] mt-2 font-bold text-primary">
+                          Dinas Koperasi dan UMKM
+                        </h3>
+                        <p className="text-[25px] font-normal text-primary">
+                          Pelatihan Manajemen Ritel untuk UMKM
+                        </p>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
           </div>
-          <div className="w-[392px] h-[183px] bg-primary shadow-lg rounded-xl flex flex-col justify-evenly py-6 px-10 text-[17px] text-left">
-            <p className="font-medium text-[#616161]">2010 - Now</p>
-            <h3 className="font-bold text-[18px]">Senior Trainer Nasional</h3>
-            <p className="font-normal">
-              Lembaga Pendidikan Perkoperasian (LAPENKOP) Wilayah DIY{" "}
-            </p>
+
+          <div className="bg-[#FEFEFE] rounded-[20px] shadow-lg mt-[71em] mb-40 flex justify-evenly items-center pb-4">
+            {/* Item 1 */}
+
+            <div className="flex flex-col items-center">
+              <div className="flex gap-2 items-end text-secondary">
+                <h1 className="font-bold text-[60px]">23</h1>
+                <h3 className="font-bold text-[28px] mb-5 ">Years</h3>
+              </div>
+              <p className="w-60 text-center font-normal text-[17px]">
+                Experienced in Retail Management
+              </p>
+            </div>
+
+            {/* Item 1 */}
+
+            <div className="flex flex-col items-center">
+              <div className="flex gap-2 items-end text-secondary">
+                <h1 className="font-bold text-[60px]">23</h1>
+                <h3 className="font-bold text-[28px] mb-5">Years</h3>
+              </div>
+              <p className="w-60 text-center font-normal text-[17px]">
+                Experienced in Retail Management
+              </p>
+            </div>
+
+            {/* Item 1 */}
+
+            <div className="flex flex-col items-center">
+              <div className="flex gap-2 items-end text-secondary">
+                <h1 className="font-bold text-[60px]">23</h1>
+                <h3 className="font-bold text-[28px] mb-5">Years</h3>
+              </div>
+              <p className="w-60 text-center font-normal text-[17px]">
+                Experienced in Retail Management
+              </p>
+            </div>
           </div>
-          <div className="w-[392px] h-[183px] bg-primary shadow-lg rounded-xl flex flex-col justify-evenly py-6 px-10 text-[17px] text-left">
-            <p className="font-medium text-[#616161]">2010 - Now</p>
-            <h3 className="font-bold text-[18px]">Owner</h3>
-            <p className="font-normal">Lepassendholic - Toko Online </p>
-          </div>
-          <div className="w-[392px] h-[183px] bg-primary shadow-lg rounded-xl flex flex-col justify-evenly py-6 px-10 text-[17px] text-left">
-            <p className="font-medium text-[#616161]">2010 - Now</p>
-            <h3 className="font-bold text-[18px]">
-              Konsultan Pendamping Manajemen Retail
+
+          {/* Section 3  Experience */}
+          <div className="w-full flex flex-col items-center text-center mb-20">
+            <div className="flex items-end gap-3 mb-3 ">
+              <Image src={Graduation1} alt="graduation" className="w-[44px]" />
+              <h4 className="text-[25px] font-normal">Experience</h4>
+            </div>
+            <h3 className="md:text-[40px] font-bold w-[20em] mb-7">
+              Driving Success with Decades of Professional Experience
             </h3>
-            <p className="font-normal">Dinas Perindagkop Sleman </p>
+            <p className="w-[40em] text-[17px] font-normal mb-20">
+              With a passion for retail management and consulting, Ive delivered
+              impactful solutions that drive growth and innovation for
+              businesses.
+            </p>
+            <div className="grid grid-cols-3 gap-[42px]">
+              <div className="w-[392px] h-[183px] bg-primary shadow-lg rounded-xl flex flex-col justify-evenly py-6 px-10 text-[17px] text-left">
+                <p className="font-medium text-[#616161]">2004 - 2010</p>
+                <h3 className="font-bold text-[18px]">Direktur Wilayah</h3>
+                <p className="font-normal">
+                  Lembaga Pendidikan Perkoperasian (LAPENKOP) Wilayah DIY
+                </p>
+              </div>
+              <div className="w-[392px] h-[183px] bg-primary shadow-lg rounded-xl flex flex-col justify-evenly py-6 px-10 text-[17px] text-left">
+                <p className="font-medium text-[#616161]">2010 - Now</p>
+                <h3 className="font-bold text-[18px]">
+                  Senior Trainer Nasional
+                </h3>
+                <p className="font-normal">
+                  Lembaga Pendidikan Perkoperasian (LAPENKOP) Wilayah DIY{" "}
+                </p>
+              </div>
+              <div className="w-[392px] h-[183px] bg-primary shadow-lg rounded-xl flex flex-col justify-evenly py-6 px-10 text-[17px] text-left">
+                <p className="font-medium text-[#616161]">2010 - Now</p>
+                <h3 className="font-bold text-[18px]">Owner</h3>
+                <p className="font-normal">Lepassendholic - Toko Online </p>
+              </div>
+              <div className="w-[392px] h-[183px] bg-primary shadow-lg rounded-xl flex flex-col justify-evenly py-6 px-10 text-[17px] text-left">
+                <p className="font-medium text-[#616161]">2010 - Now</p>
+                <h3 className="font-bold text-[18px]">
+                  Konsultan Pendamping Manajemen Retail
+                </h3>
+                <p className="font-normal">Dinas Perindagkop Sleman </p>
+              </div>
+              <div className="w-[392px] h-[183px] bg-primary shadow-lg rounded-xl flex flex-col justify-evenly py-6 px-10 text-[17px] text-left">
+                <p className="font-medium text-[#616161]">2013 - Now</p>
+                <h3 className="font-bold text-[18px]">Presiden Direktur</h3>
+                <p className="font-normal">
+                  PT. Ritelteam Sejahtera Indonesia{" "}
+                </p>
+              </div>
+              <div className="w-[392px] h-[183px] bg-primary shadow-lg rounded-xl flex flex-col justify-evenly py-6 px-10 text-[17px] text-left">
+                <p className="font-medium text-[#616161]">2016 - Now</p>
+                <h3 className="font-bold text-[18px]">Komisaris</h3>
+                <p className="font-normal">PT. Surau Ritel Indonesia </p>
+              </div>
+              <div className="w-[392px] h-[183px] bg-primary shadow-lg rounded-xl flex flex-col justify-evenly py-6 px-10 text-[17px] text-left">
+                <p className="font-medium text-[#616161]">2017 - Now</p>
+                <h3 className="font-bold text-[18px]">Direktur</h3>
+                <p className="font-normal">Ritelteam Institute</p>
+              </div>
+              <div className="w-[392px] h-[183px] rounded-xl flex flex-col justify-evenly py-6 px-10 text-[17px] text-left">
+                <Image src={LogoBunga1} alt="LogoBunga" className="" />
+              </div>
+              <div className="w-[392px] h-[183px] bg-primary shadow-lg rounded-xl flex flex-col justify-evenly py-6 px-10 text-[17px] text-left">
+                <p className="font-medium text-[#616161]">2017 - Now</p>
+                <h3 className="font-bold text-[18px]">Ketua Umum</h3>
+                <p className="font-normal">Koperasi Cinta Nusantara </p>
+              </div>
+            </div>
           </div>
-          <div className="w-[392px] h-[183px] bg-primary shadow-lg rounded-xl flex flex-col justify-evenly py-6 px-10 text-[17px] text-left">
-            <p className="font-medium text-[#616161]">2013 - Now</p>
-            <h3 className="font-bold text-[18px]">Presiden Direktur</h3>
-            <p className="font-normal">PT. Ritelteam Sejahtera Indonesia </p>
+
+          {/* Section 4 Gallery */}
+          <div className="w-full h-[50em] flex flex-col items-center text-center">
+            <div className="flex items-end gap-3 mb-3 ">
+              <Image src={Graduation1} alt="graduation" className="w-[44px]" />
+              <h4 className="text-[25px] font-normal">Experience</h4>
+            </div>
+            <h3 className="md:text-[40px] font-bold w-[20em] mb-14">
+              Gallery of my Activities
+            </h3>
+
+            <div className="flex flex-col items-center h-full w-full gap-5">
+              <div className="flex h-[304px] gap-5">
+                <div className="relative w-[770px] h-[304px]">
+                  <Image
+                    src={gridDesk1}
+                    alt="Group Event"
+                    className="absolute inset-0 w-full h-full object-cover rounded-[30px]"
+                  />
+                </div>
+                <div className="relative h-[304px] w-[496px]">
+                  <Image
+                    src={gridDesk2}
+                    alt="Group Event"
+                    className="absolute inset-0 w-full h-full object-cover rounded-[30px]"
+                  />
+                </div>
+              </div>
+              <div className="flex flex-row gap-5">
+                <div className="flex flex-col justify-center gap-5">
+                  <div className="relative h-[220px] w-[416px]">
+                    <Image
+                      src={gridDesk3}
+                      alt="Group Event"
+                      className="absolute inset-0 w-full h-full object-cover rounded-[30px]"
+                    />
+                  </div>
+                  <div className="relative h-[398px] w-[416px]">
+                    <Image
+                      src={gridDesk6}
+                      alt="Group Event"
+                      className="absolute inset-0 w-full h-full object-cover rounded-[30px]"
+                    />
+                  </div>
+                </div>
+
+                <div className="flex flex-col gap-5 justify-center">
+                  <div className="relative h-[383px] w-[416px]">
+                    <Image
+                      src={gridDesk4}
+                      alt="Group Event"
+                      className="absolute inset-0 w-full h-full object-cover rounded-[30px]"
+                    />
+                  </div>
+                  <div className="relative h-[233px] w-[416px]">
+                    <Image
+                      src={gridDesk7}
+                      alt="Group Event"
+                      className="absolute inset-0 w-full h-full object-cover rounded-[30px]"
+                    />
+                  </div>
+                </div>
+
+                <div className="flex flex-col">
+                  <div className="relative h-[638px] w-[416px]">
+                    <Image
+                      src={gridDesk5}
+                      alt="Group Event"
+                      className="absolute inset-0 w-full h-full object-cover rounded-[30px]"
+                    />
+                  </div>
+                </div>
+              </div>
+            </div>
           </div>
-          <div className="w-[392px] h-[183px] bg-primary shadow-lg rounded-xl flex flex-col justify-evenly py-6 px-10 text-[17px] text-left">
-            <p className="font-medium text-[#616161]">2016 - Now</p>
-            <h3 className="font-bold text-[18px]">Komisaris</h3>
-            <p className="font-normal">PT. Surau Ritel Indonesia </p>
+          <div className="mt-[30em]">
+            <Scroll />
           </div>
-          <div className="w-[392px] h-[183px] bg-primary shadow-lg rounded-xl flex flex-col justify-evenly py-6 px-10 text-[17px] text-left">
-            <p className="font-medium text-[#616161]">2017 - Now</p>
-            <h3 className="font-bold text-[18px]">Direktur</h3>
-            <p className="font-normal">Ritelteam Institute</p>
-          </div>
-          <div className="w-[392px] h-[183px] rounded-xl flex flex-col justify-evenly py-6 px-10 text-[17px] text-left">
-            <Image src={LogoBunga1} alt="LogoBunga" className="" />
-          </div>
-          <div className="w-[392px] h-[183px] bg-primary shadow-lg rounded-xl flex flex-col justify-evenly py-6 px-10 text-[17px] text-left">
-            <p className="font-medium text-[#616161]">2017 - Now</p>
-            <h3 className="font-bold text-[18px]">Ketua Umum</h3>
-            <p className="font-normal">Koperasi Cinta Nusantara </p>
-          </div>
+
+          <div className="w-full h-[0.5em] bg-gradient-to-r from-[#660066] to-[#E1306C] rounded-xl mt-10 mb-[10em]"></div>
         </div>
-      </div>
+      )}
     </div>
   );
 }

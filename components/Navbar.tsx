@@ -1,12 +1,15 @@
 import React from "react";
-import Logo from "@/public/Images/Logo.svg";
 import Image from "next/image";
 import { NavItem } from "@/components/Assets.js";
 import Link from "next/link";
 
+//Logo
+import Logo from "@/public/Images/Logo.svg";
+import HamburgerMenu from "@/public/Images/HamburgerMenu.svg"
+
 const Navbar = () => {
   return (
-    <div className="fixed top-0 left-0 right-0 bg-white z-50 shadow-md py-3 px-28">
+    <div className="fixed top-0 left-0 right-0 bg-white z-50 shadow-md py-3 px-28 hidden md:block">
       <div className="container mx-auto flex items-center">
         {/* Logo */}
         <div className="flex-shrink-0">

@@ -3,7 +3,7 @@ import React, { useState, useEffect } from "react";
 const Tittle = () => {
   const [currentWordIndex, setCurrentWordIndex] = useState(0);
   const [isFadingOut, setIsFadingOut] = useState(false);
-  const words = ["Vision", "Mission"]; // Kata-kata yang akan diganti
+  const words = ["Vision", "Strategi", "Inovation"]; // Kata-kata yang akan diganti
 
   useEffect(() => {
     const interval = setInterval(() => {
@@ -18,15 +18,15 @@ const Tittle = () => {
 
   return (
     <div>
-      <h3 className="text-[40px] font-extrabold mb-5">
-        Bringing{" "}
+      <h3 className="text-[27.29px] md:text-[40px] font-extrabold mb-3 md:mb-5">
+        Bringing {" "}
         <span
           className={`inline-block transition-opacity transform ${
             isFadingOut ? "opacity-0 scale-95" : "opacity-100 scale-100"
           } duration-500 ease-in-out`}
         >
-          {words[currentWordIndex]}
-        </span>{" "}
+           {words[currentWordIndex]}
+        </span>
         <br />
         to <span className="text-secondary">Retail Management</span>
       </h3>
