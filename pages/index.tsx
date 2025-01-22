@@ -61,7 +61,7 @@ export default function Home() {
   return (
     <div>
       {isMobile ? (
-        <div>
+        <div className="bg-primary">
           <NavbarMobile />
           <div id="home" className="w-full px-8">
             <div className="flex justify-end mt-5 items-center">
