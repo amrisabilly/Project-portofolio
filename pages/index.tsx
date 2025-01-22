@@ -1,6 +1,5 @@
 import React, { useState, useEffect } from "react";
 import Image from "next/image";
-import { ExperienceMob } from "@/components/Assets";
 // components
 import Navbar from "@/components/Navbar";
 import NavbarMobile from "@/components/NavbarMobile";
@@ -13,22 +12,12 @@ import LogoBunga from "@/public/Images/LogoBunga.svg";
 import LogoBunga1 from "@/public/Images/LogoBunga1.svg";
 import LogoFile from "@/public/Images/File_logo.svg";
 import Background from "@/public/Images/Frame.png";
-import BackgroundMobile from "@/public/mobile.png";
 import Graduation from "@/public/Images/Graduation_logo.svg";
 import Graduation1 from "@/public/Images/Graduation_logo2.svg";
 
 // Profile
 import Photo1 from "@/public/Images/Profile/Photo1.svg";
 import Photo2 from "@/public/Images/Profile/Photo2.svg";
-import Photo3 from "@/public/Images/Profile/Photo3.svg";
-//Grid Mobile
-import Grid1 from "@/public/Images/Grid/grid1.svg";
-import Grid2 from "@/public/Images/Grid/grid2.svg";
-import Grid3 from "@/public/Images/Grid/grid3.svg";
-import Grid4 from "@/public/Images/Grid/grid4.svg";
-import Grid5 from "@/public/Images/Grid/grid5.svg";
-import Grid6 from "@/public/Images/Grid/grid6.svg";
-import Grid7 from "@/public/Images/Grid/grid7.svg";
 
 //Grid Desktop
 import gridDesk1 from "@/public/Images/Grid/Desktop/grid1.svg";
