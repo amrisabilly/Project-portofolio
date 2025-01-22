@@ -44,7 +44,7 @@ export default function Home() {
 
   useEffect(() => {
     const handleResize = () => {
-      setIsMobile(window.innerWidth <= 768);
+      setIsMobile(window.innerWidth <= 640);
     };
 
     // Set nilai awal saat komponen pertama kali dirender
@@ -426,12 +426,12 @@ export default function Home() {
       ) : (
         // Tampilan Desktop
 
-        <div className="md:px-8 lg:px-9 xl:px-28 relative">
+        <div className="px-28 relative">
           <Navbar />
 
           {/* Section Home */}
           <div id="home" className="flex flex-row justify-between mt-36">
-            <div className="flex flex-col md:w-[25em] lg:w-[30em] xl:w-[30em] pt-20">
+            <div className="flex flex-col w-[30em] pt-20">
               <Image
                 src={LogoBunga}
                 alt="logoBunga"
@@ -443,7 +443,7 @@ export default function Home() {
                 Hi, Im Andri Syahrizal
               </h3>
               <p
-                className="font-normal text-[17px] md:w-[20em] lg:w-[28em] xl:w-[28em] mb-6 md:mb-14"
+                className="font-normal text-[17px] w-[28em] mb-14"
                 data-aos="fade-up"
               >
                 Bringing 23 years of retail expertise and 13 years of consulting
@@ -452,7 +452,7 @@ export default function Home() {
                 communities across Indonesia.
               </p>
               <a href="/cv.pdf" download data-aos="fade-up">
-                <button className="flex items-center justify-center gap-3 bg-gradient-to-r from-[#660066] to-[#E1306C] text-white py-1 md:py-3 w-full rounded-3xl font-bold text-lg transition-transform transform  md:hover:scale-105 active:scale-95 shadow-lg hover:shadow-2xl">
+                <button className="flex items-center justify-center gap-3 bg-gradient-to-r from-[#660066] to-[#E1306C] text-white py-3 w-full rounded-3xl font-bold text-lg transition-transform transform  md:hover:scale-105 active:scale-95 shadow-lg hover:shadow-2xl">
                   <Image src={LogoFile} alt="file" className="w-[24px]" />
                   <p className="font-medium text-[18px]">Download CV</p>
                 </button>
@@ -464,7 +464,7 @@ export default function Home() {
               <Image
                 src={Photo1}
                 alt="logoBunga"
-                className="md:w-[300px] lg:w-[400px] xl:w-full h-[338.69px] md:h-full"
+                className="w-full h-full"
                 data-aos="fade-up"
               />
             </div>
@@ -474,7 +474,7 @@ export default function Home() {
           {/* Section 2 */}
 
           {/* Background Image */}
-          <div className="absolute md:top-[18em] lg:top-[14em] xl:top-[18em] left-0 w-full h-[100em] z-[-1] overflow-hidden md:pt-[40em] lg:pt-[43em] xl:pt-[45em]">
+          <div className="absolute top-[18em] left-0 w-full h-[100em] z-[-1] overflow-hidden pt-[45em]">
             <Image
               src={Background}
               alt="Background"
@@ -483,13 +483,13 @@ export default function Home() {
               className="rounded-b-[6em]"
             />
 
-            <div className="relative z-10 text-primary md:px-8 lg:px-9 xl:px-32">
-              <div className="flex flex-row md:gap-8 lg:gap-10 xl:gap-40">
+            <div className="relative z-10 text-primary px-32">
+              <div className="flex flex-row gap-40">
                 {/* Background Image */}
                 <Image
                   src={Photo2}
                   alt="photo2"
-                  className="md:w-[300px] lg:w-[330px] xl:w-[370px]"
+                  className="w-[370px]"
                   data-aos="fade-right"
                 />
                 <div id="education" className="flex flex-col">
@@ -505,7 +505,7 @@ export default function Home() {
                     Opened the doors to discovery
                   </h3>
                   <p
-                    className="md:w-[25em] lg:w-[30em] xl:w-[40em] text-[17px] font-normal"
+                    className="w-[40em] text-[17px] font-normal"
                     data-aos="fade-up"
                   >
                     Dedicated to lifelong learning, my education has shaped my
@@ -592,7 +592,7 @@ export default function Home() {
             </div>
           </div>
 
-          <div className="bg-[#FEFEFE] rounded-[20px] shadow-lg md:mt-[69em] lg:mt-[71em] xl:mt-[71em] md:mb-20 lg:mb-28 xl:mb-40 flex justify-evenly items-center pb-4">
+          <div className="bg-[#FEFEFE] rounded-[20px] shadow-lg mt-[71em] mb-40 flex justify-evenly items-center pb-4">
             {/* Item 1 */}
 
             <div className="flex flex-col items-center">
@@ -640,7 +640,7 @@ export default function Home() {
               <h4 className="text-[25px] font-normal">Experience</h4>
             </div>
             <h3
-              className="md:text-[40px] font-bold w-[20em] mb-7"
+              className="text-[40px] font-bold w-[20em] mb-7"
               data-aos="fade-up"
             >
               Driving Success with Decades of Professional Experience
@@ -653,7 +653,7 @@ export default function Home() {
               impactful solutions that drive growth and innovation for
               businesses.
             </p>
-            <div className="grid grid-cols-1 lg:grid-cols-2 xl:grid-cols-3 gap-[42px]">
+            <div className="grid grid-cols-3 gap-[42px]">
               <div
                 data-aos="fade-up"
                 className="w-[392px] h-[183px] bg-primary shadow-lg rounded-xl flex flex-col justify-evenly py-6 px-10 text-[17px] text-left"
@@ -747,83 +747,13 @@ export default function Home() {
               <h4 className="text-[25px] font-normal">Experience</h4>
             </div>
             <h3
-              className="md:text-[40px] font-bold w-[20em] mb-14"
+              className="text-[40px] font-bold w-[20em] mb-14"
               data-aos="fade-up"
             >
               Gallery of my Activities
             </h3>
 
-            <div className="block lg:block xl:hidden">
-              <div className="grid grid-cols-3 gap-2">
-                <div className="col-span-3">
-                  <Image src={Grid1} alt="Group Event" className="" />
-                </div>
-                <div className="col-span-1">
-                  <div className="grid grid-rows-1 gap-2">
-                    {/* Row 1 */}
-                    <div className="row-span-1 relative h-[54px]">
-                      <Image
-                        src={Grid2}
-                        alt="Group Event"
-                        className="w-full h-full object-cover rounded-[8.46px]"
-                      />
-                    </div>
-
-                    {/* Row 2 */}
-                    <div className="row-span-1 relative h-[110px]">
-                      <Image
-                        src={Grid4}
-                        alt="Group Event"
-                        className="w-full h-full object-cover rounded-[8.46px]"
-                      />
-                    </div>
-
-                    {/* Row 3 */}
-                    <div className="row-span-1 relative h-[97px]">
-                      <Image
-                        src={Grid7}
-                        alt="Group Event"
-                        className="w-full h-full object-cover rounded-[8.46px]"
-                      />
-                    </div>
-                  </div>
-                </div>
-                <div className="col-span-2">
-                  <div className="grid grid-rows-3 gap-2 h-[270px]">
-                    <div className="row-span-1 relative h-full">
-                      <Image
-                        src={Grid3}
-                        alt="Group Event"
-                        className="absolute inset-0 w-full h-full object-cover rounded-[8.46px]"
-                      />
-                    </div>
-                    <div className="row-span-2">
-                      <div className="grid grid-cols-2 gap-2 h-[184px]">
-                        {/* Kolom 1 */}
-                        <div className="col-span-1 relative h-full ">
-                          <Image
-                            src={Grid5}
-                            alt="Group Event"
-                            className="absolute inset-0 w-full h-full object-cover rounded-[8.46px]"
-                          />
-                        </div>
-
-                        {/* Kolom 2 */}
-                        <div className="col-span-1 relative h-full">
-                          <Image
-                            src={Grid6}
-                            alt="Group Event"
-                            className="absolute inset-0 w-full h-full object-cover rounded-[8.46px]"
-                          />
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
-
-            <div className="hidden lg:hidden xl:flex flex-col items-center h-full w-full gap-5">
+            <div className="flex flex-col items-center h-full w-full gap-5">
               <div className="flex h-[304px] gap-5">
                 <div
                   className="relative w-[770px] h-[304px]"
@@ -908,13 +838,13 @@ export default function Home() {
               </div>
             </div>
           </div>
-          <div className="mt-20 lg:mt-[10em] xl:mt-[20em]" data-aos="fade-up">
+          <div className="mt-[20em]" data-aos="fade-up">
             <Scroll />
           </div>
 
           <div
             data-aos="fade-up"
-            className="w-full h-[0.5em] bg-gradient-to-r from-[#660066] to-[#E1306C] rounded-xl mt-10 mb-[5em] lg:mb-[5em] xl:mb-[7em]"
+            className="w-full h-[0.5em] bg-gradient-to-r from-[#660066] to-[#E1306C] rounded-xl mt-10 mb-[7em]"
           ></div>
         </div>
       )}
