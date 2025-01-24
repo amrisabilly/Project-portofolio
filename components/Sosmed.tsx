@@ -32,7 +32,7 @@ const Sosmed = () => {
   return (
     <motion.div
     data-aos="fade-up"
-      className="fixed right-8 xl:right-5 top-24 xl:top-1/2 transform -translate-y-1/2 flex flex-col gap-3 z-50"
+      className="fixed right-8 xl:right-5 top-24 md:top-1/3 xl:top-1/2 transform -translate-y-1/2 flex flex-col gap-3 md:gap-8 z-50"
       initial={{ opacity: 1 }}
       animate={{
         opacity: showSosmed ? 1 : 0, // Fade in when scrolling up, fade out when scrolling down
@@ -46,21 +46,21 @@ const Sosmed = () => {
         target="_blank"
         rel="noopener noreferrer"
       >
-        <Image src={Linkind} alt="linkedin" className="w-6 lg:w-12 xl:w-14" />
+        <Image src={Linkind} alt="linkedin" className="w-8 md:w-12 lg:w-12 xl:w-14" />
       </a>
       <a
         href="https://www.instagram.com"
         target="_blank"
         rel="noopener noreferrer"
       >
-        <Image src={Instagram} alt="instagram" className="w-6 lg:w-12 xl:w-14" />
+        <Image src={Instagram} alt="instagram" className="w-8 md:w-12 lg:w-12 xl:w-14" />
       </a>
       <a
         href="https://www.facebook.com/andrisyahrizal.syahrizal/"
         target="_blank"
         rel="noopener noreferrer"
       >
-        <Image src={Facebook} alt="facebook" className="w-6 lg:w-12 xl:w-14" />
+        <Image src={Facebook} alt="facebook" className="w-8 md:w-12 lg:w-12 xl:w-14" />
       </a>
     </motion.div>
   );

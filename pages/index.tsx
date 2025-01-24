@@ -43,33 +43,33 @@ export default function Home() {
   const [isMobile, setIsMobile] = useState(false);
 
   useEffect(() => {
-    // Fungsi untuk mendeteksi ukuran layar
     const handleResize = () => {
-      // Sesuaikan dengan breakpoint Tailwind (<= 640px berarti sm atau lebih kecil)
-      setIsMobile(window.matchMedia("(max-width: 640px)").matches);
+      setIsMobile(window.innerWidth <= 768);
     };
 
-    // Jalankan sekali saat komponen dimount
+    // Set nilai awal saat komponen pertama kali dirender
     handleResize();
 
-    // Tambahkan event listener untuk mendeteksi perubahan ukuran layar
+    // Tambahkan event listener untuk menangani perubahan ukuran jendela
     window.addEventListener("resize", handleResize);
 
-    // Bersihkan event listener saat komponen di-unmount
+    // Hapus event listener saat komponen di-unmount
     return () => window.removeEventListener("resize", handleResize);
   }, []);
+
   return (
-    <div className="bg-primary relative">
+    <div>
       {isMobile ? (
-        <div className="bg-primary w-full h-full relative">
+        <div className="bg-white h-full relative text-black overflow-hidden">
           <NavbarMobile />
           <div id="home" className="w-full px-8">
-            <div className="flex justify-end mt-5 items-center">
+            {/* Logo As */}
+            <div className="flex justify-end pt-4 items-center">
               <Image
                 src={Logo}
                 alt="logo"
-                className="right-0 w-[46px]"
-                data-aos="fade-left"
+                className="w-[48px]"
+                data-aos="fade-up"
               />
             </div>
             {/* Sosmed */}
@@ -77,19 +77,19 @@ export default function Home() {
             <div className="mt-[4em]">
               <Image
                 src={LogoBunga}
-                alt="logoBunga"
+                alt="Logo Bunga"
                 className="w-[55.42px] mb-3"
                 data-aos="fade-up"
               />
               <Tittle />
-              <h3 className="font-bold text-[16px] mb-3" data-aos="fade-up">
+              <h3 className="font-bold text-[18px] mb-3" data-aos="fade-up">
                 Hi, Im Andri Syahrizal
               </h3>
-              <p className="font-normal text-[12px]  mb-6" data-aos="fade-up">
+              <p className="font-normal text-[13px]  mb-6" data-aos="fade-up">
                 Bringing 23 years of retail expertise and 13 years of consulting
                 to the table, I specialize in crafting innovative solutions for
                 modern retail and cooperatives, driving growth for MSMEs and
-                communities acros Indonesia.
+                communities across Indonesia.
               </p>
               <a href="/cv.pdf" download>
                 <button
@@ -101,16 +101,18 @@ export default function Home() {
                 </button>
               </a>
             </div>
-            <div className="mt-8" data-aos="fade-up">
-              <Image src={Photo1} alt="Photo" />
+            <div className="mt-8">
+              <Image src={Photo1} alt="Photo" data-aos="fade-up" />
             </div>
           </div>
+
+          {/* Section 2 Education */}
           <div className="absolute top-[50em]">
             <div className="relative z-10">
               <Image
                 src={BackgroundMobile}
-                alt="Background"
-                className="w-full h-auto"
+                alt="backgrondmobile"
+                id="education"
               />
               <div className="absolute inset-0 px-8">
                 <Image
@@ -119,7 +121,7 @@ export default function Home() {
                   className="mt-[12em] mb-3"
                   data-aos="fade-up"
                 />
-                <div id="education" className="flex flex-col text-primary">
+                <div className="flex flex-col text-primary">
                   <div className="flex gap-2 mb-1" data-aos="fade-up">
                     <Image
                       src={Graduation}
@@ -220,7 +222,7 @@ export default function Home() {
                       <h1 className="font-bold text-[20px]">23</h1>
                       <h3 className="font-bold text-[10px] mb-[5px]">Years</h3>
                     </div>
-                    <p className="text-center font-normal text-[8px]">
+                    <p className="text-center font-normal text-[9px]">
                       Experienced in Retail Management
                     </p>
                   </div>
@@ -232,7 +234,7 @@ export default function Home() {
                       <h1 className="font-bold text-[20px]">13</h1>
                       <h3 className="font-bold text-[10px] mb-[5px]">Years</h3>
                     </div>
-                    <p className="text-center font-normal text-[8px]">
+                    <p className="text-center font-normal text-[9px]">
                       Being a Business Consultant{" "}
                     </p>
                   </div>
@@ -244,7 +246,7 @@ export default function Home() {
                       <h1 className="font-bold text-[20px]">10</h1>
                       <h3 className="font-bold text-[10px] mb-[5px]">+</h3>
                     </div>
-                    <p className="text-center font-normal text-[8px]">
+                    <p className="text-center font-normal text-[9px]">
                       Active Community{" "}
                     </p>
                   </div>
@@ -252,7 +254,7 @@ export default function Home() {
               </div>
             </div>
           </div>
-          <div className="w-full h-[100em] bg-primary px-6 mb-48">
+          <div className="w-full h-full bg-primary px-6 mb-24">
             {/* Section 3 */}
             <div
               id="experience"
@@ -280,18 +282,18 @@ export default function Home() {
               <div className="grid grid-cols-2 gap-4">
                 {ExperienceMob.map((item) => (
                   <div
-                    className="bg-primary h-[15em] shadow-lg rounded-xl flex flex-col justify-evenly py-4 px-4 text-[12px] text-left"
+                    className="bg-primary h-[15em] shadow-lg rounded-xl flex flex-col justify-evenly py-4 px-4 text-left"
                     key={item.id}
                     data-aos="fade-up"
                   >
                     <p className="font-medium text-[#616161] text-[11px]">
                       {item.tahun}
                     </p>
-                    <h3 className="font-bold">{item.jabatan}</h3>
-                    <p className="font-normal">{item.keterangan}</p>
+                    <h3 className="font-bold text-[12px]">{item.jabatan}</h3>
+                    <p className="font-normal text-[12px]">{item.keterangan}</p>
                   </div>
                 ))}
-                <div className="bg-transparent rounded-xl flex flex-col justify-center items-center col-span-2">
+                <div className="mt-5 bg-transparent rounded-xl flex flex-col justify-center items-center col-span-2">
                   <Image
                     src={LogoBunga1}
                     alt="logo"
@@ -306,7 +308,7 @@ export default function Home() {
               id="gallery"
               className="flex flex-col items-center text-center mt-[3em]"
             >
-              <div className="flex items-end gap-3 mb-3 " data-aos="fade-up">
+              <div className="flex items-center gap-3 mb-3 " data-aos="fade-up">
                 <Image
                   src={Graduation1}
                   alt="graduation"
@@ -427,12 +429,12 @@ export default function Home() {
       ) : (
         // Tampilan Desktop
 
-        <div className="px-28 relative">
+        <div className="px-8 lg:px-9 xl:px-28 relative h-full w-full bg-white z-[-10] text-black pb-40">
           <Navbar />
 
           {/* Section Home */}
-          <div id="home" className="flex flex-row justify-between mt-36">
-            <div className="flex flex-col w-[30em] pt-20">
+          <div id="home" className="flex flex-row justify-between pt-36">
+            <div className="flex flex-col w-[25em] lg:w-[30em] xl:w-[30em] pt-20">
               <Image
                 src={LogoBunga}
                 alt="logoBunga"
@@ -444,7 +446,7 @@ export default function Home() {
                 Hi, Im Andri Syahrizal
               </h3>
               <p
-                className="font-normal text-[17px] w-[28em] mb-14"
+                className="font-normal text-[17px] w-[20em] lg:w-[28em] xl:w-[28em] mb-6 md:mb-14"
                 data-aos="fade-up"
               >
                 Bringing 23 years of retail expertise and 13 years of consulting
@@ -453,7 +455,7 @@ export default function Home() {
                 communities across Indonesia.
               </p>
               <a href="/cv.pdf" download data-aos="fade-up">
-                <button className="flex items-center justify-center gap-3 bg-gradient-to-r from-[#660066] to-[#E1306C] text-white py-3 w-full rounded-3xl font-bold text-lg transition-transform transform  md:hover:scale-105 active:scale-95 shadow-lg hover:shadow-2xl">
+                <button className="flex items-center justify-center gap-3 bg-gradient-to-r from-[#660066] to-[#E1306C] text-white py-1 md:py-3 w-full rounded-3xl font-bold text-lg transition-transform transform  md:hover:scale-105 active:scale-95 shadow-lg hover:shadow-2xl">
                   <Image src={LogoFile} alt="file" className="w-[24px]" />
                   <p className="font-medium text-[18px]">Download CV</p>
                 </button>
@@ -465,7 +467,7 @@ export default function Home() {
               <Image
                 src={Photo1}
                 alt="logoBunga"
-                className="w-full h-full"
+                className="w-[420px] lg:w-[400px] xl:w-full h-[338.69px] md:h-full"
                 data-aos="fade-up"
               />
             </div>
@@ -475,7 +477,7 @@ export default function Home() {
           {/* Section 2 */}
 
           {/* Background Image */}
-          <div className="absolute top-[18em] left-0 w-full h-[100em] z-[-1] overflow-hidden pt-[45em]">
+          <div className="absolute top-[18em] lg:top-[14em] xl:top-[23em] left-0 w-full h-[100em] z-[-1] overflow-hidden pt-[42em] lg:pt-[43em] xl:pt-[45em]">
             <Image
               src={Background}
               alt="Background"
@@ -484,13 +486,13 @@ export default function Home() {
               className="rounded-b-[6em]"
             />
 
-            <div className="relative z-10 text-primary px-32">
-              <div className="flex flex-row gap-40">
+            <div className="relative z-10 text-primary px-8 lg:px-9 xl:px-32">
+              <div className="flex flex-row gap-8 lg:gap-10 xl:gap-40">
                 {/* Background Image */}
                 <Image
                   src={Photo2}
                   alt="photo2"
-                  className="w-[370px]"
+                  className="w-[300px] lg:w-[330px] xl:w-[370px]"
                   data-aos="fade-right"
                 />
                 <div id="education" className="flex flex-col">
@@ -506,7 +508,7 @@ export default function Home() {
                     Opened the doors to discovery
                   </h3>
                   <p
-                    className="w-[40em] text-[17px] font-normal"
+                    className="w-[25em] lg:w-[30em] xl:w-[40em] text-[17px] font-normal"
                     data-aos="fade-up"
                   >
                     Dedicated to lifelong learning, my education has shaped my
@@ -593,7 +595,7 @@ export default function Home() {
             </div>
           </div>
 
-          <div className="bg-[#FEFEFE] rounded-[20px] shadow-lg mt-[71em] mb-40 flex justify-evenly items-center pb-4">
+          <div className="bg-[#FEFEFE] text-black rounded-[20px] shadow-lg mt-[66em] lg:mt-[71em] xl:mt-[67em] mb-20 lg:mb-28 xl:mb-40 flex justify-evenly items-center pb-4">
             {/* Item 1 */}
 
             <div className="flex flex-col items-center">
@@ -641,7 +643,7 @@ export default function Home() {
               <h4 className="text-[25px] font-normal">Experience</h4>
             </div>
             <h3
-              className="text-[40px] font-bold w-[20em] mb-7"
+              className="md:text-[40px] font-bold w-[20em] mb-7"
               data-aos="fade-up"
             >
               Driving Success with Decades of Professional Experience
@@ -654,7 +656,7 @@ export default function Home() {
               impactful solutions that drive growth and innovation for
               businesses.
             </p>
-            <div className="grid grid-cols-3 gap-[42px]">
+            <div className="grid grid-cols-2 lg:grid-cols-2 xl:grid-cols-3 gap-[42px]">
               <div
                 data-aos="fade-up"
                 className="w-[392px] h-[183px] bg-primary shadow-lg rounded-xl flex flex-col justify-evenly py-6 px-10 text-[17px] text-left"
@@ -748,13 +750,83 @@ export default function Home() {
               <h4 className="text-[25px] font-normal">Experience</h4>
             </div>
             <h3
-              className="text-[40px] font-bold w-[20em] mb-14"
+              className="md:text-[40px] font-bold w-[20em] mb-14"
               data-aos="fade-up"
             >
               Gallery of my Activities
             </h3>
 
-            <div className="flex flex-col items-center h-full w-full gap-5">
+            <div className="block lg:block xl:hidden">
+              <div className="grid grid-cols-3 gap-2">
+                <div className="col-span-3">
+                  <Image src={Grid1} alt="Group Event" className="" />
+                </div>
+                <div className="col-span-1">
+                  <div className="grid grid-rows-1 gap-2">
+                    {/* Row 1 */}
+                    <div className="row-span-1 relative h-[54px]">
+                      <Image
+                        src={Grid2}
+                        alt="Group Event"
+                        className="w-full h-full object-cover rounded-[8.46px]"
+                      />
+                    </div>
+
+                    {/* Row 2 */}
+                    <div className="row-span-1 relative h-[110px]">
+                      <Image
+                        src={Grid4}
+                        alt="Group Event"
+                        className="w-full h-full object-cover rounded-[8.46px]"
+                      />
+                    </div>
+
+                    {/* Row 3 */}
+                    <div className="row-span-1 relative h-[97px]">
+                      <Image
+                        src={Grid7}
+                        alt="Group Event"
+                        className="w-full h-full object-cover rounded-[8.46px]"
+                      />
+                    </div>
+                  </div>
+                </div>
+                <div className="col-span-2">
+                  <div className="grid grid-rows-3 gap-2 h-[270px]">
+                    <div className="row-span-1 relative h-full">
+                      <Image
+                        src={Grid3}
+                        alt="Group Event"
+                        className="absolute inset-0 w-full h-full object-cover rounded-[8.46px]"
+                      />
+                    </div>
+                    <div className="row-span-2">
+                      <div className="grid grid-cols-2 gap-2 h-[184px]">
+                        {/* Kolom 1 */}
+                        <div className="col-span-1 relative h-full ">
+                          <Image
+                            src={Grid5}
+                            alt="Group Event"
+                            className="absolute inset-0 w-full h-full object-cover rounded-[8.46px]"
+                          />
+                        </div>
+
+                        {/* Kolom 2 */}
+                        <div className="col-span-1 relative h-full">
+                          <Image
+                            src={Grid6}
+                            alt="Group Event"
+                            className="absolute inset-0 w-full h-full object-cover rounded-[8.46px]"
+                          />
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div className="hidden lg:hidden xl:flex flex-col items-center h-full w-full gap-5">
               <div className="flex h-[304px] gap-5">
                 <div
                   className="relative w-[770px] h-[304px]"
@@ -839,13 +911,13 @@ export default function Home() {
               </div>
             </div>
           </div>
-          <div className="mt-[20em]" data-aos="fade-up">
+          <div className="mt-20 lg:mt-[10em] xl:mt-[20em]" data-aos="fade-up">
             <Scroll />
           </div>
 
           <div
             data-aos="fade-up"
-            className="w-full h-[0.5em] bg-gradient-to-r from-[#660066] to-[#E1306C] rounded-xl mt-10 mb-[7em]"
+            className="w-full h-[0.5em] bg-gradient-to-r from-[#660066] to-[#E1306C] rounded-xl mt-10"
           ></div>
         </div>
       )}

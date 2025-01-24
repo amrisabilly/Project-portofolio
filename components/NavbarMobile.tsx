@@ -139,7 +139,7 @@ const NavbarMobile = () => {
         {/* Hamburger Icon with transition */}
         {isMenuVisible && !isMenuOpen && (
           <div
-            className="bg-secondary mt-3 w-[56.2px] h-[50.2px] flex justify-center items-center rounded-e-[10px] cursor-pointer transition-all duration-300"
+            className="bg-secondary mt-3 w-[50.2px] h-[45.2px] flex justify-center items-center rounded-e-[10px] cursor-pointer transition-all duration-300"
             onClick={handleClick}
           >
             <Image src={HamburgerMenu} alt="HamburgerMenu" />
