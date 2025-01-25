@@ -3,7 +3,7 @@ import React, { useState, useEffect } from "react";
 const Tittle = () => {
   const [currentWordIndex, setCurrentWordIndex] = useState(0);
   const [isFadingOut, setIsFadingOut] = useState(false);
-  const words = ["Vision", "Strategi", "Inovation"]; // Kata-kata yang akan diganti
+  const words = ["Vision", "Strategy", "Inovation"]; // Kata-kata yang akan diganti
 
   useEffect(() => {
     const interval = setInterval(() => {

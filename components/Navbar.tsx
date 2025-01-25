@@ -98,7 +98,7 @@ const Navbar = () => {
           animate={{ y: 0 }}      // Move to its normal position
           exit={{ y: -100 }}      // Move back up when closing
           transition={{ duration: 0.3 }}  // Duration for smooth transition
-          className="fixed top-0 left-0 right-0 bg-white z-50 shadow-md py-3 px-16 lg:px-16 xl:px-28"
+          className="fixed top-0 left-0 right-0 bg-white z-50 shadow-md py-3 px-16 lg:px-16 xl:px-28 z-30"
         >
           <div className="container mx-auto flex items-center">
             {/* Logo */}
@@ -116,7 +116,7 @@ const Navbar = () => {
                         isActive(item.url)
                           ? "border-b-2 border-[#660066]"
                           : "border-transparent"
-                      } text-secondary font-normal text-[17px]`}
+                      } text-secondary font-normal text-[17px] cursor-pointer`}
                     >
                       {item.name}
                     </button>

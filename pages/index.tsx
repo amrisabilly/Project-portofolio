@@ -39,6 +39,13 @@ import gridDesk5 from "@/public/Images/Grid/Desktop/grid5.svg";
 import gridDesk6 from "@/public/Images/Grid/Desktop/grid6.svg";
 import gridDesk7 from "@/public/Images/Grid/Desktop/grid7.svg";
 
+import gallery1 from "@/public/gallery1.jpg";
+import gallery2 from "@/public/gallery2.jpg";
+import gallery3 from "@/public/gallery3.jpg";
+import gallery4 from "@/public/gellery4.jpg";
+import gallery5 from "@/public/gallery5.jpg";
+import { div } from "framer-motion/client";
+
 export default function Home() {
   const [isMobile, setIsMobile] = useState(false);
 
@@ -101,8 +108,13 @@ export default function Home() {
                 </button>
               </a>
             </div>
-            <div className="mt-8">
-              <Image src={Photo1} alt="Photo" data-aos="fade-up" />
+            <div className="mt-14 flex justify-center">
+              <Image
+                src={Photo1}
+                alt="Photo"
+                data-aos="fade-up"
+                className="w-[276px]"
+              />
             </div>
           </div>
 
@@ -324,12 +336,11 @@ export default function Home() {
               </h3>
               <div className="">
                 <div className="grid grid-cols-3 gap-2">
-                  <div className="col-span-3">
+                  <div className="col-span-3 relative h-[86px]">
                     <Image
-                      src={Grid1}
+                      src={gallery1}
                       alt="Group Event"
-                      className=""
-                      data-aos="fade-up"
+                      className="w-full h-full object-cover rounded-[8.46px] object-[50%_70%]"
                     />
                   </div>
                   <div className="col-span-1">
@@ -340,7 +351,7 @@ export default function Home() {
                         data-aos="fade-right"
                       >
                         <Image
-                          src={Grid2}
+                          src={gallery2}
                           alt="Group Event"
                           className="w-full h-full object-cover rounded-[8.46px]"
                         />
@@ -352,7 +363,7 @@ export default function Home() {
                         data-aos="fade-right"
                       >
                         <Image
-                          src={Grid4}
+                          src={gallery3}
                           alt="Group Event"
                           className="w-full h-full object-cover rounded-[8.46px]"
                         />
@@ -391,7 +402,7 @@ export default function Home() {
                             data-aos="fade-up"
                           >
                             <Image
-                              src={Grid5}
+                              src={gallery5}
                               alt="Group Event"
                               className="absolute inset-0 w-full h-full object-cover rounded-[8.46px]"
                             />
@@ -428,396 +439,172 @@ export default function Home() {
         </div>
       ) : (
         // Tampilan Desktop
-
-        <div className="px-8 lg:px-9 xl:px-28 relative h-full w-full bg-white z-[-10] text-black pb-40">
+        <div>
           <Navbar />
-
-          {/* Section Home */}
-          <div id="home" className="flex flex-row justify-between pt-36">
-            <div className="flex flex-col w-[25em] lg:w-[30em] xl:w-[30em] pt-20">
-              <Image
-                src={LogoBunga}
-                alt="logoBunga"
-                className="w-[101.52px] mb-5"
-                data-aos="fade-up"
-              />
-              <Tittle />
-              <h3 className="font-bold text-[25px] mb-3" data-aos="fade-up">
-                Hi, Im Andri Syahrizal
-              </h3>
-              <p
-                className="font-normal text-[17px] w-[20em] lg:w-[28em] xl:w-[28em] mb-6 md:mb-14"
-                data-aos="fade-up"
-              >
-                Bringing 23 years of retail expertise and 13 years of consulting
-                to the table, I specialize in crafting innovative solutions for
-                modern retail and cooperatives, driving growth for MSMEs and
-                communities across Indonesia.
-              </p>
-              <a href="/cv.pdf" download data-aos="fade-up">
-                <button className="flex items-center justify-center gap-3 bg-gradient-to-r from-[#660066] to-[#E1306C] text-white py-1 md:py-3 w-full rounded-3xl font-bold text-lg transition-transform transform  md:hover:scale-105 active:scale-95 shadow-lg hover:shadow-2xl">
-                  <Image src={LogoFile} alt="file" className="w-[24px]" />
-                  <p className="font-medium text-[18px]">Download CV</p>
-                </button>
-              </a>
-            </div>
-
-            {/* Sisi Kanan */}
-            <div>
-              <Image
-                src={Photo1}
-                alt="logoBunga"
-                className="w-[420px] lg:w-[400px] xl:w-full h-[338.69px] md:h-full"
-                data-aos="fade-up"
-              />
-            </div>
-          </div>
-
           <Sosmed />
-          {/* Section 2 */}
-
-          {/* Background Image */}
-          <div className="absolute top-[18em] lg:top-[14em] xl:top-[23em] left-0 w-full h-[100em] z-[-1] overflow-hidden pt-[42em] lg:pt-[43em] xl:pt-[45em]">
-            <Image
-              src={Background}
-              alt="Background"
-              layout="fill"
-              objectFit="cover"
-              className="rounded-b-[6em]"
-            />
-
-            <div className="relative z-10 text-primary px-8 lg:px-9 xl:px-32">
-              <div className="flex flex-row gap-8 lg:gap-10 xl:gap-40">
-                {/* Background Image */}
+          <div className="absolute z-50 top-[42em] left-8 xl:left-[7em] w-[20em] xl:w-[30em]">
+            <a href="/cv.pdf" download data-aos="fade-up">
+              <button className="flex items-center justify-center gap-3  bg-gradient-to-r from-[#660066] to-[#E1306C] text-white py-1 md:py-3 w-full rounded-3xl font-bold text-lg transition-transform transform  md:hover:scale-105 active:scale-95 shadow-lg hover:shadow-2xl">
+                <Image src={LogoFile} alt="file" className="w-[24px]" />
+                <p className="font-medium text-[18px]">Download CV</p>
+              </button>
+            </a>
+          </div>
+          <div className="px-8 lg:px-9 xl:px-28 relative h-full w-full bg-white z-[-10] text-black pb-40">
+            {/* Section Home */}
+            <div id="home" className="flex flex-row justify-between pt-36">
+              <div className="flex flex-col w-[25em] lg:w-[30em] xl:w-[30em] pt-20">
                 <Image
-                  src={Photo2}
-                  alt="photo2"
-                  className="w-[300px] lg:w-[330px] xl:w-[370px]"
-                  data-aos="fade-right"
+                  src={LogoBunga}
+                  alt="logoBunga"
+                  className="w-[101.52px] mb-5"
+                  data-aos="fade-up"
                 />
-                <div id="education" className="flex flex-col">
-                  <div className="flex items-end gap-3 mb-3" data-aos="fade-up">
-                    <Image
-                      src={Graduation}
-                      alt="graduation"
-                      className="w-[44px]"
-                    />
-                    <p className="text-[25px] font-normal">Education</p>
-                  </div>
-                  <h3 className="text-[40px] font-bold mb-2" data-aos="fade-up">
-                    Opened the doors to discovery
-                  </h3>
-                  <p
-                    className="w-[25em] lg:w-[30em] xl:w-[40em] text-[17px] font-normal"
-                    data-aos="fade-up"
-                  >
-                    Dedicated to lifelong learning, my education has shaped my
-                    mindset and laid a strong foundation for delivering
-                    impactful solutions in the future.
-                  </p>
-                  <div className="m-10">
+                <Tittle />
+                <h3 className="font-bold text-[25px] mb-3" data-aos="fade-up">
+                  Hi, Im Andri Syahrizal
+                </h3>
+                <p
+                  className="font-normal text-[17px] w-[20em] lg:w-[28em] xl:w-[28em] mb-6 md:mb-14"
+                  data-aos="fade-up"
+                >
+                  Bringing 23 years of retail expertise and 13 years of
+                  consulting to the table, I specialize in crafting innovative
+                  solutions for modern retail and cooperatives, driving growth
+                  for MSMEs and communities across Indonesia.
+                </p>
+              </div>
+
+              {/* Sisi Kanan */}
+              <div>
+                <Image
+                  src={Photo1}
+                  alt="logoBunga"
+                  className="w-[420px] lg:w-[400px] xl:w-full h-[338.69px] md:h-full"
+                  data-aos="fade-up"
+                />
+              </div>
+            </div>
+
+            {/* Section 2 */}
+
+            {/* Background Image */}
+            <div className="absolute top-[18em] lg:top-[14em] xl:top-[23em] left-0 w-full h-[100em] z-[-1] overflow-hidden pt-[42em] lg:pt-[43em] xl:pt-[45em]">
+              <Image
+                src={Background}
+                alt="Background"
+                layout="fill"
+                objectFit="cover"
+                className="rounded-b-[6em]"
+              />
+
+              <div className="relative z-10 text-primary px-8 lg:px-9 xl:px-32">
+                <div className="flex flex-row gap-8 lg:gap-10 xl:gap-40">
+                  {/* Background Image */}
+                  <Image
+                    src={Photo2}
+                    alt="photo2"
+                    className="w-[300px] lg:w-[330px] xl:w-[370px]"
+                    data-aos="fade-right"
+                  />
+                  <div id="education" className="flex flex-col">
                     <div
-                      className="relative border-l-4 border-[#FFFFFF]"
+                      className="flex items-end gap-3 mb-3"
                       data-aos="fade-up"
                     >
-                      {/* Item 1 */}
-                      <div className="mb-10 ml-10">
-                        <div className="absolute w-7 h-7 bg-white rounded-full -left-[16px] border-8 border-[#FF9500]"></div>
-                        <time
-                          className="mb-1 text-[17px] font-normal leading-none text-primary"
-                          data-aos="fade-left"
-                        >
-                          2004
-                        </time>
-                        <h3
-                          className="text-[25px] mt-2 font-bold text-primary"
-                          data-aos="fade-left"
-                        >
-                          UIN Sunan Kalijaga
-                        </h3>
-                        <p
-                          className="text-[25px] font-normal text-primary"
-                          data-aos="fade-left"
-                        >
-                          Bachelor of Islamic Economics
-                        </p>
-                      </div>
-
-                      {/* Item 2 */}
-                      <div className="mb-10 ml-10">
-                        <div className="absolute w-7 h-7 bg-white rounded-full -left-[16px] border-8 border-[#FF9500]"></div>
-                        <time
-                          className="mb-1 text-[17px] font-normal leading-none text-primary"
-                          data-aos="fade-left"
-                        >
-                          2020 - 2023
-                        </time>
-                        <h3
-                          className="text-[25px] mt-2 font-bold text-primary"
-                          data-aos="fade-left"
-                        >
-                          Kelas Prakerja
-                        </h3>
-                        <p
-                          className="text-[25px] font-normal text-primary"
-                          data-aos="fade-left"
-                        >
-                          Manajemen Toko Retail Makanan (Daring)
-                        </p>
-                      </div>
-
-                      {/* Item 3 */}
-                      <div className="ml-10">
-                        <div className="absolute w-7 h-7 bg-white rounded-full -left-[16px] border-8 border-[#FF9500]"></div>
-                        <time
-                          className="mb-1 text-[17px] font-normal leading-none text-primary"
-                          data-aos="fade-left"
-                        >
-                          2020 - 2023
-                        </time>
-                        <h3
-                          className="text-[25px] mt-2 font-bold text-primary"
-                          data-aos="fade-left"
-                        >
-                          Dinas Koperasi dan UMKM
-                        </h3>
-                        <p
-                          className="text-[25px] font-normal text-primary"
-                          data-aos="fade-left"
-                        >
-                          Pelatihan Manajemen Ritel untuk UMKM
-                        </p>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-
-          <div className="bg-[#FEFEFE] text-black rounded-[20px] shadow-lg mt-[66em] lg:mt-[71em] xl:mt-[67em] mb-20 lg:mb-28 xl:mb-40 flex justify-evenly items-center pb-4">
-            {/* Item 1 */}
-
-            <div className="flex flex-col items-center">
-              <div className="flex gap-2 items-end text-secondary">
-                <h1 className="font-bold text-[60px]">23</h1>
-                <h3 className="font-bold text-[28px] mb-5 ">Years</h3>
-              </div>
-              <p className="w-60 text-center font-normal text-[17px]">
-                Experienced in Retail Management
-              </p>
-            </div>
-
-            {/* Item 1 */}
-
-            <div className="flex flex-col items-center">
-              <div className="flex gap-2 items-end text-secondary">
-                <h1 className="font-bold text-[60px]">13</h1>
-                <h3 className="font-bold text-[28px] mb-5">Years</h3>
-              </div>
-              <p className="w-60 text-center font-normal text-[17px]">
-                Being a Business Consultant{" "}
-              </p>
-            </div>
-
-            {/* Item 1 */}
-
-            <div className="flex flex-col items-center">
-              <div className="flex gap-2 items-end text-secondary">
-                <h1 className="font-bold text-[60px]">13</h1>
-                <h3 className="font-bold text-[28px] mb-5">+</h3>
-              </div>
-              <p className="w-60 text-center font-normal text-[17px]">
-                Active Community{" "}
-              </p>
-            </div>
-          </div>
-
-          {/* Section 3  Experience */}
-          <div
-            id="experience"
-            className="w-full flex flex-col items-center text-center mb-20"
-          >
-            <div className="flex items-end gap-3 mb-3 " data-aos="fade-up">
-              <Image src={Graduation1} alt="graduation" className="w-[44px]" />
-              <h4 className="text-[25px] font-normal">Experience</h4>
-            </div>
-            <h3
-              className="md:text-[40px] font-bold w-[20em] mb-7"
-              data-aos="fade-up"
-            >
-              Driving Success with Decades of Professional Experience
-            </h3>
-            <p
-              className="w-[40em] text-[17px] font-normal mb-20"
-              data-aos="fade-up"
-            >
-              With a passion for retail management and consulting, Ive delivered
-              impactful solutions that drive growth and innovation for
-              businesses.
-            </p>
-            <div className="grid grid-cols-2 lg:grid-cols-2 xl:grid-cols-3 gap-[42px]">
-              <div
-                data-aos="fade-up"
-                className="w-[392px] h-[183px] bg-primary shadow-lg rounded-xl flex flex-col justify-evenly py-6 px-10 text-[17px] text-left"
-              >
-                <p className="font-medium text-[#616161]">2004 - 2010</p>
-                <h3 className="font-bold text-[18px]">Direktur Wilayah</h3>
-                <p className="font-normal">
-                  Lembaga Pendidikan Perkoperasian (LAPENKOP) Wilayah DIY
-                </p>
-              </div>
-              <div
-                data-aos="fade-up"
-                className="w-[392px] h-[183px] bg-primary shadow-lg rounded-xl flex flex-col justify-evenly py-6 px-10 text-[17px] text-left"
-              >
-                <p className="font-medium text-[#616161]">2010 - Now</p>
-                <h3 className="font-bold text-[18px]">
-                  Senior Trainer Nasional
-                </h3>
-                <p className="font-normal">
-                  Lembaga Pendidikan Perkoperasian (LAPENKOP) Wilayah DIY{" "}
-                </p>
-              </div>
-              <div
-                data-aos="fade-up"
-                className="w-[392px] h-[183px] bg-primary shadow-lg rounded-xl flex flex-col justify-evenly py-6 px-10 text-[17px] text-left"
-              >
-                <p className="font-medium text-[#616161]">2010 - Now</p>
-                <h3 className="font-bold text-[18px]">Owner</h3>
-                <p className="font-normal">Lepassendholic - Toko Online </p>
-              </div>
-              <div
-                data-aos="fade-up"
-                className="w-[392px] h-[183px] bg-primary shadow-lg rounded-xl flex flex-col justify-evenly py-6 px-10 text-[17px] text-left"
-              >
-                <p className="font-medium text-[#616161]">2010 - Now</p>
-                <h3 className="font-bold text-[18px]">
-                  Konsultan Pendamping Manajemen Retail
-                </h3>
-                <p className="font-normal">Dinas Perindagkop Sleman </p>
-              </div>
-              <div
-                data-aos="fade-up"
-                className="w-[392px] h-[183px] bg-primary shadow-lg rounded-xl flex flex-col justify-evenly py-6 px-10 text-[17px] text-left"
-              >
-                <p className="font-medium text-[#616161]">2013 - Now</p>
-                <h3 className="font-bold text-[18px]">Presiden Direktur</h3>
-                <p className="font-normal">
-                  PT. Ritelteam Sejahtera Indonesia{" "}
-                </p>
-              </div>
-              <div
-                data-aos="fade-up"
-                className="w-[392px] h-[183px] bg-primary shadow-lg rounded-xl flex flex-col justify-evenly py-6 px-10 text-[17px] text-left"
-              >
-                <p className="font-medium text-[#616161]">2016 - Now</p>
-                <h3 className="font-bold text-[18px]">Komisaris</h3>
-                <p className="font-normal">PT. Surau Ritel Indonesia </p>
-              </div>
-              <div
-                data-aos="fade-up"
-                className="w-[392px] h-[183px] bg-primary shadow-lg rounded-xl flex flex-col justify-evenly py-6 px-10 text-[17px] text-left"
-              >
-                <p className="font-medium text-[#616161]">2017 - Now</p>
-                <h3 className="font-bold text-[18px]">Direktur</h3>
-                <p className="font-normal">Ritelteam Institute</p>
-              </div>
-              <div
-                data-aos="fade-up"
-                className="w-[392px] h-[183px] rounded-xl hidden lg:hidden xl:flex flex-col justify-evenly py-6 px-10 text-[17px] text-left"
-              >
-                <Image src={LogoBunga1} alt="LogoBunga" className="" />
-              </div>
-              <div
-                data-aos="fade-up"
-                className="w-[392px] h-[183px] bg-primary shadow-lg rounded-xl flex flex-col justify-evenly py-6 px-10 text-[17px] text-left"
-              >
-                <p className="font-medium text-[#616161]">2017 - Now</p>
-                <h3 className="font-bold text-[18px]">Ketua Umum</h3>
-                <p className="font-normal">Koperasi Cinta Nusantara </p>
-              </div>
-            </div>
-          </div>
-
-          {/* Section 4 Gallery */}
-          <div
-            id="gallery"
-            className="w-full h-full flex flex-col items-center text-center"
-          >
-            <div className="flex items-end gap-3 mb-3 " data-aos="fade-up">
-              <Image src={Graduation1} alt="graduation" className="w-[44px]" />
-              <h4 className="text-[25px] font-normal">Experience</h4>
-            </div>
-            <h3
-              className="md:text-[40px] font-bold w-[20em] mb-14"
-              data-aos="fade-up"
-            >
-              Gallery of my Activities
-            </h3>
-
-            <div className="block lg:block xl:hidden">
-              <div className="grid grid-cols-3 gap-2">
-                <div className="col-span-3">
-                  <Image src={Grid1} alt="Group Event" className="" />
-                </div>
-                <div className="col-span-1">
-                  <div className="grid grid-rows-1 gap-2">
-                    {/* Row 1 */}
-                    <div className="row-span-1 relative h-[54px]">
                       <Image
-                        src={Grid2}
-                        alt="Group Event"
-                        className="w-full h-full object-cover rounded-[8.46px]"
+                        src={Graduation}
+                        alt="graduation"
+                        className="w-[44px]"
                       />
+                      <p className="text-[25px] font-normal">Education</p>
                     </div>
-
-                    {/* Row 2 */}
-                    <div className="row-span-1 relative h-[110px]">
-                      <Image
-                        src={Grid4}
-                        alt="Group Event"
-                        className="w-full h-full object-cover rounded-[8.46px]"
-                      />
-                    </div>
-
-                    {/* Row 3 */}
-                    <div className="row-span-1 relative h-[97px]">
-                      <Image
-                        src={Grid7}
-                        alt="Group Event"
-                        className="w-full h-full object-cover rounded-[8.46px]"
-                      />
-                    </div>
-                  </div>
-                </div>
-                <div className="col-span-2">
-                  <div className="grid grid-rows-3 gap-2 h-[270px]">
-                    <div className="row-span-1 relative h-full">
-                      <Image
-                        src={Grid3}
-                        alt="Group Event"
-                        className="absolute inset-0 w-full h-full object-cover rounded-[8.46px]"
-                      />
-                    </div>
-                    <div className="row-span-2">
-                      <div className="grid grid-cols-2 gap-2 h-[184px]">
-                        {/* Kolom 1 */}
-                        <div className="col-span-1 relative h-full ">
-                          <Image
-                            src={Grid5}
-                            alt="Group Event"
-                            className="absolute inset-0 w-full h-full object-cover rounded-[8.46px]"
-                          />
+                    <h3
+                      className="text-[40px] font-bold mb-2"
+                      data-aos="fade-up"
+                    >
+                      Opened the doors to discovery
+                    </h3>
+                    <p
+                      className="w-[25em] lg:w-[30em] xl:w-[40em] text-[17px] font-normal"
+                      data-aos="fade-up"
+                    >
+                      Dedicated to lifelong learning, my education has shaped my
+                      mindset and laid a strong foundation for delivering
+                      impactful solutions in the future.
+                    </p>
+                    <div className="m-10">
+                      <div
+                        className="relative border-l-4 border-[#FFFFFF]"
+                        data-aos="fade-up"
+                      >
+                        {/* Item 1 */}
+                        <div className="mb-10 ml-10">
+                          <div className="absolute w-7 h-7 bg-white rounded-full -left-[16px] border-8 border-[#FF9500]"></div>
+                          <time
+                            className="mb-1 text-[17px] font-normal leading-none text-primary"
+                            data-aos="fade-left"
+                          >
+                            2004
+                          </time>
+                          <h3
+                            className="text-[25px] mt-2 font-bold text-primary"
+                            data-aos="fade-left"
+                          >
+                            UIN Sunan Kalijaga
+                          </h3>
+                          <p
+                            className="text-[25px] font-normal text-primary"
+                            data-aos="fade-left"
+                          >
+                            Bachelor of Islamic Economics
+                          </p>
                         </div>
 
-                        {/* Kolom 2 */}
-                        <div className="col-span-1 relative h-full">
-                          <Image
-                            src={Grid6}
-                            alt="Group Event"
-                            className="absolute inset-0 w-full h-full object-cover rounded-[8.46px]"
-                          />
+                        {/* Item 2 */}
+                        <div className="mb-10 ml-10">
+                          <div className="absolute w-7 h-7 bg-white rounded-full -left-[16px] border-8 border-[#FF9500]"></div>
+                          <time
+                            className="mb-1 text-[17px] font-normal leading-none text-primary"
+                            data-aos="fade-left"
+                          >
+                            2020 - 2023
+                          </time>
+                          <h3
+                            className="text-[25px] mt-2 font-bold text-primary"
+                            data-aos="fade-left"
+                          >
+                            Kelas Prakerja
+                          </h3>
+                          <p
+                            className="text-[25px] font-normal text-primary"
+                            data-aos="fade-left"
+                          >
+                            Manajemen Toko Retail Makanan (Daring)
+                          </p>
+                        </div>
+
+                        {/* Item 3 */}
+                        <div className="ml-10">
+                          <div className="absolute w-7 h-7 bg-white rounded-full -left-[16px] border-8 border-[#FF9500]"></div>
+                          <time
+                            className="mb-1 text-[17px] font-normal leading-none text-primary"
+                            data-aos="fade-left"
+                          >
+                            2020 - 2023
+                          </time>
+                          <h3
+                            className="text-[25px] mt-2 font-bold text-primary"
+                            data-aos="fade-left"
+                          >
+                            Dinas Koperasi dan UMKM
+                          </h3>
+                          <p
+                            className="text-[25px] font-normal text-primary"
+                            data-aos="fade-left"
+                          >
+                            Pelatihan Manajemen Ritel untuk UMKM
+                          </p>
                         </div>
                       </div>
                     </div>
@@ -826,99 +613,339 @@ export default function Home() {
               </div>
             </div>
 
-            <div className="hidden lg:hidden xl:flex flex-col items-center h-full w-full gap-5">
-              <div className="flex h-[304px] gap-5">
+            <div className="bg-[#FEFEFE] text-black rounded-[20px] shadow-lg mt-[68em] lg:mt-[71em] xl:mt-[67em] mb-20 lg:mb-28 xl:mb-40 flex justify-evenly items-center pb-4">
+              {/* Item 1 */}
+
+              <div className="flex flex-col items-center">
+                <div className="flex gap-2 items-end text-secondary">
+                  <h1 className="font-bold text-[60px]">23</h1>
+                  <h3 className="font-bold text-[28px] mb-5 ">Years</h3>
+                </div>
+                <p className="w-60 text-center font-normal text-[17px]">
+                  Experienced in Retail Management
+                </p>
+              </div>
+
+              {/* Item 1 */}
+
+              <div className="flex flex-col items-center">
+                <div className="flex gap-2 items-end text-secondary">
+                  <h1 className="font-bold text-[60px]">13</h1>
+                  <h3 className="font-bold text-[28px] mb-5">Years</h3>
+                </div>
+                <p className="w-60 text-center font-normal text-[17px]">
+                  Being a Business Consultant{" "}
+                </p>
+              </div>
+
+              {/* Item 1 */}
+
+              <div className="flex flex-col items-center">
+                <div className="flex gap-2 items-end text-secondary">
+                  <h1 className="font-bold text-[60px]">13</h1>
+                  <h3 className="font-bold text-[28px] mb-5">+</h3>
+                </div>
+                <p className="w-60 text-center font-normal text-[17px]">
+                  Active Community{" "}
+                </p>
+              </div>
+            </div>
+
+            {/* Section 3  Experience */}
+            <div
+              id="experience"
+              className="w-full flex flex-col items-center text-center mb-20"
+            >
+              <div className="flex items-end gap-3 mb-3 " data-aos="fade-up">
+                <Image
+                  src={Graduation1}
+                  alt="graduation"
+                  className="w-[44px]"
+                />
+                <h4 className="text-[25px] font-normal">Experience</h4>
+              </div>
+              <h3
+                className="md:text-[40px] font-bold w-[20em] mb-7"
+                data-aos="fade-up"
+              >
+                Driving Success with Decades of Professional Experience
+              </h3>
+              <p
+                className="w-[40em] text-[17px] font-normal mb-20"
+                data-aos="fade-up"
+              >
+                With a passion for retail management and consulting, Ive
+                delivered impactful solutions that drive growth and innovation
+                for businesses.
+              </p>
+              <div className="grid grid-cols-2 lg:grid-cols-2 xl:grid-cols-3 gap-[42px]">
                 <div
-                  className="relative w-[770px] h-[304px]"
-                  data-aos="fade-right"
+                  data-aos="fade-up"
+                  className="w-[392px] h-[183px] bg-primary shadow-lg rounded-xl flex flex-col justify-evenly py-6 px-10 text-[17px] text-left"
                 >
-                  <Image
-                    src={gridDesk1}
-                    alt="Group Event"
-                    className="absolute inset-0 w-full h-full object-cover rounded-[30px]"
-                  />
+                  <p className="font-medium text-[#616161]">2004 - 2010</p>
+                  <h3 className="font-bold text-[18px]">Direktur Wilayah</h3>
+                  <p className="font-normal">
+                    Lembaga Pendidikan Perkoperasian (LAPENKOP) Wilayah DIY
+                  </p>
                 </div>
                 <div
-                  className="relative h-[304px] w-[496px]"
-                  data-aos="fade-left"
+                  data-aos="fade-up"
+                  className="w-[392px] h-[183px] bg-primary shadow-lg rounded-xl flex flex-col justify-evenly py-6 px-10 text-[17px] text-left"
                 >
-                  <Image
-                    src={gridDesk2}
-                    alt="Group Event"
-                    className="absolute inset-0 w-full h-full object-cover rounded-[30px]"
-                  />
+                  <p className="font-medium text-[#616161]">2010 - Now</p>
+                  <h3 className="font-bold text-[18px]">
+                    Senior Trainer Nasional
+                  </h3>
+                  <p className="font-normal">
+                    Lembaga Pendidikan Perkoperasian (LAPENKOP) Wilayah DIY{" "}
+                  </p>
+                </div>
+                <div
+                  data-aos="fade-up"
+                  className="w-[392px] h-[183px] bg-primary shadow-lg rounded-xl flex flex-col justify-evenly py-6 px-10 text-[17px] text-left"
+                >
+                  <p className="font-medium text-[#616161]">2010 - Now</p>
+                  <h3 className="font-bold text-[18px]">Owner</h3>
+                  <p className="font-normal">Lepassendholic - Toko Online </p>
+                </div>
+                <div
+                  data-aos="fade-up"
+                  className="w-[392px] h-[183px] bg-primary shadow-lg rounded-xl flex flex-col justify-evenly py-6 px-10 text-[17px] text-left"
+                >
+                  <p className="font-medium text-[#616161]">2010 - Now</p>
+                  <h3 className="font-bold text-[18px]">
+                    Konsultan Pendamping Manajemen Retail
+                  </h3>
+                  <p className="font-normal">Dinas Perindagkop Sleman </p>
+                </div>
+                <div
+                  data-aos="fade-up"
+                  className="w-[392px] h-[183px] bg-primary shadow-lg rounded-xl flex flex-col justify-evenly py-6 px-10 text-[17px] text-left"
+                >
+                  <p className="font-medium text-[#616161]">2013 - Now</p>
+                  <h3 className="font-bold text-[18px]">Presiden Direktur</h3>
+                  <p className="font-normal">
+                    PT. Ritelteam Sejahtera Indonesia{" "}
+                  </p>
+                </div>
+                <div
+                  data-aos="fade-up"
+                  className="w-[392px] h-[183px] bg-primary shadow-lg rounded-xl flex flex-col justify-evenly py-6 px-10 text-[17px] text-left"
+                >
+                  <p className="font-medium text-[#616161]">2016 - Now</p>
+                  <h3 className="font-bold text-[18px]">Komisaris</h3>
+                  <p className="font-normal">PT. Surau Ritel Indonesia </p>
+                </div>
+                <div
+                  data-aos="fade-up"
+                  className="w-[392px] h-[183px] bg-primary shadow-lg rounded-xl flex flex-col justify-evenly py-6 px-10 text-[17px] text-left"
+                >
+                  <p className="font-medium text-[#616161]">2017 - Now</p>
+                  <h3 className="font-bold text-[18px]">Direktur</h3>
+                  <p className="font-normal">Ritelteam Institute</p>
+                </div>
+                <div
+                  data-aos="fade-up"
+                  className="w-[392px] h-[183px] rounded-xl hidden lg:hidden xl:flex flex-col justify-evenly py-6 px-10 text-[17px] text-left"
+                >
+                  <Image src={LogoBunga1} alt="LogoBunga" className="" />
+                </div>
+                <div
+                  data-aos="fade-up"
+                  className="w-[392px] h-[183px] bg-primary shadow-lg rounded-xl flex flex-col justify-evenly py-6 px-10 text-[17px] text-left"
+                >
+                  <p className="font-medium text-[#616161]">2017 - Now</p>
+                  <h3 className="font-bold text-[18px]">Ketua Umum</h3>
+                  <p className="font-normal">Koperasi Cinta Nusantara </p>
                 </div>
               </div>
-              <div className="flex flex-row gap-5">
-                <div className="flex flex-col justify-center gap-5">
+            </div>
+
+            {/* Section 4 Gallery */}
+            <div
+              id="gallery"
+              className="w-full h-full flex flex-col items-center text-center"
+            >
+              <div className="flex items-end gap-3 mb-3 " data-aos="fade-up">
+                <Image
+                  src={Graduation1}
+                  alt="graduation"
+                  className="w-[44px]"
+                />
+                <h4 className="text-[25px] font-normal">Experience</h4>
+              </div>
+              <h3
+                className="md:text-[40px] font-bold w-[20em] mb-14"
+                data-aos="fade-up"
+              >
+                Gallery of my Activities
+              </h3>
+
+              <div className="block lg:block xl:hidden">
+                <div className="grid grid-cols-3 gap-2">
+                  <div className="col-span-3">
+                    <Image src={Grid1} alt="Group Event" className="" />
+                  </div>
+                  <div className="col-span-1">
+                    <div className="grid grid-rows-1 gap-2">
+                      {/* Row 1 */}
+                      <div className="row-span-1 relative h-[54px]">
+                        <Image
+                          src={Grid2}
+                          alt="Group Event"
+                          className="w-full h-full object-cover rounded-[8.46px]"
+                        />
+                      </div>
+
+                      {/* Row 2 */}
+                      <div className="row-span-1 relative h-[110px]">
+                        <Image
+                          src={Grid4}
+                          alt="Group Event"
+                          className="w-full h-full object-cover rounded-[8.46px]"
+                        />
+                      </div>
+
+                      {/* Row 3 */}
+                      <div className="row-span-1 relative h-[97px]">
+                        <Image
+                          src={Grid7}
+                          alt="Group Event"
+                          className="w-full h-full object-cover rounded-[8.46px]"
+                        />
+                      </div>
+                    </div>
+                  </div>
+                  <div className="col-span-2">
+                    <div className="grid grid-rows-3 gap-2 h-[270px]">
+                      <div className="row-span-1 relative h-full">
+                        <Image
+                          src={Grid3}
+                          alt="Group Event"
+                          className="absolute inset-0 w-full h-full object-cover rounded-[8.46px]"
+                        />
+                      </div>
+                      <div className="row-span-2">
+                        <div className="grid grid-cols-2 gap-2 h-[184px]">
+                          {/* Kolom 1 */}
+                          <div className="col-span-1 relative h-full ">
+                            <Image
+                              src={Grid5}
+                              alt="Group Event"
+                              className="absolute inset-0 w-full h-full object-cover rounded-[8.46px]"
+                            />
+                          </div>
+
+                          {/* Kolom 2 */}
+                          <div className="col-span-1 relative h-full">
+                            <Image
+                              src={Grid6}
+                              alt="Group Event"
+                              className="absolute inset-0 w-full h-full object-cover rounded-[8.46px]"
+                            />
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <div className="hidden lg:hidden xl:flex flex-col items-center h-full w-full gap-5">
+                <div className="flex h-[304px] gap-5">
                   <div
-                    className="relative h-[220px] w-[416px]"
+                    className="relative w-[770px] h-[304px]"
                     data-aos="fade-right"
                   >
                     <Image
-                      src={gridDesk3}
+                      src={gallery1}
                       alt="Group Event"
-                      className="absolute inset-0 w-full h-full object-cover rounded-[30px]"
+                      className="absolute inset-0 w-full h-full object-cover rounded-[30px] object-[50%_90%]"
                     />
                   </div>
                   <div
-                    className="relative h-[398px] w-[416px]"
-                    data-aos="fade-right"
-                  >
-                    <Image
-                      src={gridDesk6}
-                      alt="Group Event"
-                      className="absolute inset-0 w-full h-full object-cover rounded-[30px]"
-                    />
-                  </div>
-                </div>
-
-                <div className="flex flex-col gap-5 justify-center">
-                  <div
-                    className="relative h-[383px] w-[416px]"
-                    data-aos="fade-up"
-                  >
-                    <Image
-                      src={gridDesk4}
-                      alt="Group Event"
-                      className="absolute inset-0 w-full h-full object-cover rounded-[30px]"
-                    />
-                  </div>
-                  <div
-                    className="relative h-[233px] w-[416px]"
-                    data-aos="fade-up"
-                  >
-                    <Image
-                      src={gridDesk7}
-                      alt="Group Event"
-                      className="absolute inset-0 w-full h-full object-cover rounded-[30px]"
-                    />
-                  </div>
-                </div>
-
-                <div className="flex flex-col">
-                  <div
-                    className="relative h-[638px] w-[416px]"
+                    className="relative h-[304px] w-[496px]"
                     data-aos="fade-left"
                   >
                     <Image
-                      src={gridDesk5}
+                      src={gridDesk2}
                       alt="Group Event"
                       className="absolute inset-0 w-full h-full object-cover rounded-[30px]"
                     />
                   </div>
                 </div>
+                <div className="flex flex-row gap-5">
+                  <div className="flex flex-col justify-center gap-5">
+                    <div
+                      className="relative h-[220px] w-[416px]"
+                      data-aos="fade-right"
+                    >
+                      <Image
+                        src={gallery2}
+                        alt="Group Event"
+                        className="absolute inset-0 w-full h-full object-cover rounded-[30px]"
+                      />
+                    </div>
+                    <div
+                      className="relative h-[398px] w-[416px]"
+                      data-aos="fade-right"
+                    >
+                      <Image
+                        src={gridDesk6}
+                        alt="Group Event"
+                        className="absolute inset-0 w-full h-full object-cover rounded-[30px]"
+                      />
+                    </div>
+                  </div>
+
+                  <div className="flex flex-col gap-5 justify-center">
+                    <div
+                      className="relative h-[383px] w-[416px]"
+                      data-aos="fade-up"
+                    >
+                      <Image
+                        src={gallery3}
+                        alt="Group Event"
+                        className="absolute inset-0 w-full h-full object-cover rounded-[30px]"
+                      />
+                    </div>
+                    <div
+                      className="relative h-[233px] w-[416px]"
+                      data-aos="fade-up"
+                    >
+                      <Image
+                        src={gallery5}
+                        alt="Group Event"
+                        className="absolute inset-0 w-full h-full object-cover rounded-[30px] object-[50%_40%]"
+                      />
+                    </div>
+                  </div>
+
+                  <div className="flex flex-col">
+                    <div
+                      className="relative h-[638px] w-[416px]"
+                      data-aos="fade-left"
+                    >
+                      <Image
+                        src={gallery4}
+                        alt="Group Event"
+                        className="absolute inset-0 w-full h-full object-cover rounded-[30px] object-[90%_40%]"
+                      />
+                    </div>
+                  </div>
+                </div>
               </div>
             </div>
-          </div>
-          <div className="mt-20 lg:mt-[10em] xl:mt-[20em]" data-aos="fade-up">
-            <Scroll />
-          </div>
+            <div className="mt-20 lg:mt-[10em] xl:mt-[20em]" data-aos="fade-up">
+              <Scroll />
+            </div>
 
-          <div
-            data-aos="fade-up"
-            className="w-full h-[0.5em] bg-gradient-to-r from-[#660066] to-[#E1306C] rounded-xl mt-10"
-          ></div>
+            <div
+              data-aos="fade-up"
+              className="w-full h-[0.5em] bg-gradient-to-r from-[#660066] to-[#E1306C] rounded-xl mt-10"
+            ></div>
+          </div>
         </div>
       )}
     </div>
