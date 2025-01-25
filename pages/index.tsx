@@ -31,20 +31,14 @@ import Grid6 from "@/public/Images/Grid/grid6.svg";
 import Grid7 from "@/public/Images/Grid/grid7.svg";
 
 //Grid Desktop
-import gridDesk1 from "@/public/Images/Grid/Desktop/grid1.svg";
 import gridDesk2 from "@/public/Images/Grid/Desktop/grid2.svg";
-import gridDesk3 from "@/public/Images/Grid/Desktop/grid3.svg";
-import gridDesk4 from "@/public/Images/Grid/Desktop/grid4.svg";
-import gridDesk5 from "@/public/Images/Grid/Desktop/grid5.svg";
 import gridDesk6 from "@/public/Images/Grid/Desktop/grid6.svg";
-import gridDesk7 from "@/public/Images/Grid/Desktop/grid7.svg";
 
 import gallery1 from "@/public/gallery1.jpg";
 import gallery2 from "@/public/gallery2.jpg";
 import gallery3 from "@/public/gallery3.jpg";
 import gallery4 from "@/public/gellery4.jpg";
 import gallery5 from "@/public/gallery5.jpg";
-import { div } from "framer-motion/client";
 
 export default function Home() {
   const [isMobile, setIsMobile] = useState(false);
